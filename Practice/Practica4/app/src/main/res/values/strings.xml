@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Practica4</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="voc">Словарь важных слов</string>
+    <string name="words">Невыученные слова</string>
+    <string name="Back">Вернуться</string>
+    <string name="Svernuli">Вы свернули приложение</string>
+</resources>
