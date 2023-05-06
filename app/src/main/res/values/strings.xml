@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">HappyEnglish</string>
+
+    <string-array name="headings">
+
+        <item>Twelve Verb Tenses</item>
+        <item>Conditionals</item>
+        <item>Gerunds and Infinitives</item>
+        <item>Relative Clauses</item>
+        <item>Direct and Indirect Speech</item>
+        <item>English Idioms</item>
+        <item>Grammar Quiz</item>
+    </string-array>
+
+    <string-array name="descriptions">
+
+        <item> There are 12 verb tenses in English, formed by combining the past, present, and future tenses with the simple, progressive, perfect, or perfect progressive aspects.</item>
+        <item> Conditionals are structures that express a statement and its possible outcome.</item>
+        <item></item>
+        <item>Relative Clauses</item>
+        <item>Direct and Indirect Speech</item>
+        <item>English Idioms</item>
+        <item>Grammar Quiz</item>
+    </string-array>
 </resources>
