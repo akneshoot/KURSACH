@@ -15,13 +15,16 @@ public class CustomSlider extends PagerAdapter {
 
     Context context;
 
-    String [] headings={"Russia", "America", "Australia"};
-    String [] descriptions={"It is my country", "It is a good country", "I live in this country"};
-    int [] images = {R.drawable.tense, R.drawable.reported, R.drawable.relative};
+    String [] headings;
+    String [] descriptions;
+    int [] images = {R.drawable.tense, R.drawable.conditional, R.drawable.gerund, R.drawable.relative, R.drawable.reported, R.drawable.idiom, R.drawable.quiz};
 
 
-    public CustomSlider (Context context){
+    public CustomSlider (Context context, String [] headings, String [] descriptions){
         this.context=context;
+        this.headings=headings;
+        this.descriptions=descriptions;
+
     }
 
     @Override

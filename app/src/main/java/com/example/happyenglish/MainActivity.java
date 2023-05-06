@@ -15,7 +15,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         
         typcast_my_object();
-        CustomSlider mCustomerslider = new CustomSlider(this);
+
+        String mHeadings[]=getResources().getStringArray(R.array.headings);
+        String mDescriptions[]=getResources().getStringArray(R.array.descriptions);;
+        CustomSlider mCustomerslider = new CustomSlider(this, mHeadings, mDescriptions);
 
         mViewpager.setAdapter(mCustomerslider);
     }

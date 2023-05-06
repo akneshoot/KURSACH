@@ -7,28 +7,28 @@
         android:id="@+id/slider_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"
         android:layout_centerInParent="true"
-        />
+        android:src="@mipmap/ic_launcher" />
+
     <TextView
         android:id="@+id/slider_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Heading"
-        android:textSize="25dp"
         android:layout_below="@id/slider_image_view"
+        android:text="Heading"
+        android:textAlignment="center"
         android:layout_centerHorizontal="true"
-        android:textColor="#000000"
-        />
+        android:textColor="@color/white"
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/slider_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description"
-        android:textSize="25dp"
-        android:layout_below="@id/slider_heading"
         android:layout_centerHorizontal="true"
-        />
+        android:layout_below="@id/slider_heading"
+        android:text="Description"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
 
 </RelativeLayout>
