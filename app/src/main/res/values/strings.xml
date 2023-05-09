@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">HappyEnglish</string>
+
+    <string-array name="headings">
+
+        <item>Twelve Verb Tenses</item>
+        <item>Conditionals</item>
+        <item>Gerunds vs Infinitives</item>
+        <item>Relative Clauses</item>
+        <item>Direct and Indirect Speech</item>
+        <item>English Idioms</item>
+        <item>Grammar Quiz</item>
+    </string-array>
+
+    <string-array name="descriptions">
+
+        <item> В английском языке существует 12 глагольных времен, образованных путем сочетания прошедшего, настоящего и будущего времен с аспектами simple, progressive, perfect или perfect progressive.</item>
+        <item> Conditionals - это структуры, которые выражают утверждение и его возможный результат.</item>
+        <item> Gerunds and Infinitives иногда называют дополнениями к глаголу. Они могут функционировать как субъекты или объекты в предложении.</item>
+        <item> Relative clause — это предложение, вводимое относительным местоимением. Относительное местоимение — это тип местоимения, которое относится к предшествующему существительному в предложении, чтобы идентифицировать или изменить его. К относительным местоимениям в английском языке относятся - that, which, who, whose and whom.</item>
+        <item>Direct and Indirect Speech. Прямая речь - это оригинальные или фактические слова говорящего, которые заключены в кавычки. В косвенной речи оригинальные или фактические слова говорящего, которые изменены на наш собственный манер, и утверждение не заключено в кавычки.</item>
+        <item>English Idioms - - это распространенные выражения или поговорки, состоящие из комбинации отдельных слов, используемые носителями английского языка и не носителями английского языка в повседневной, образной речи.</item>
+        <item>Grammar Quiz. Чтобы начать тест и узнать свои знания английского, нажмите на картинку...Удачи!!!</item>
+    </string-array>
 </resources>
