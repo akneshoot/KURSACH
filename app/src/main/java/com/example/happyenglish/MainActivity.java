@@ -1,14 +1,19 @@
 package com.example.happyenglish;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -29,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     List<String> list_group;
     HashMap<String, List<String>> list_children;
     //
+
+    private ActionBarDrawerToggle mActionBarDrawerToggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +65,29 @@ public class MainActivity extends AppCompatActivity {
 
         mExpandableListAdapter = new CustomExpandableListViewAdapter(this, list_group,list_children);
         mExpandableListView.setAdapter(mExpandableListAdapter);
+
+        mActionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawer,R.string.drawer_open,R.string.drawer_closer){
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                Toast.makeText(MainActivity.this, R.string.drawer_open,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                Toast.makeText(MainActivity.this, R.string.drawer_closer,Toast.LENGTH_SHORT).show();
+            }
+        };
+        mDrawer.setDrawerListener(mActionBarDrawerToggle);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+
+
     }
+
+
 
     private void typcast_my_object() {
 
@@ -68,5 +98,19 @@ public class MainActivity extends AppCompatActivity {
         mExpandableListView = findViewById(R.id.expandable_listview);
         list_children= ExpandableListData.getData();
         list_group = new ArrayList<String>(list_children.keySet());
+
+    }
+
+    protected void onPostCreate(@Nullable Bundle saveInstanceState) {
+        super.onPostCreate(saveInstanceState);
+        mActionBarDrawerToggle.syncState();
+
+    }
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (mActionBarDrawerToggle.onOptionsItemSelected(item)){
+            return true;
+        }
+        return super .onOptionsItemSelected(item);
     }
 }

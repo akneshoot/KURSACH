@@ -22,4 +22,7 @@
         <item>English Idioms - - это распространенные выражения или поговорки, состоящие из комбинации отдельных слов, используемые носителями английского языка и не носителями английского языка в повседневной, образной речи.</item>
         <item>Grammar Quiz. Чтобы начать тест и узнать свои знания английского, нажмите на картинку...Удачи!!!</item>
     </string-array>
+
+    <string name="drawer_closer">the drawer has been closed</string>
+    <string name="drawer_open">the drawer has been opened</string>
 </resources>
