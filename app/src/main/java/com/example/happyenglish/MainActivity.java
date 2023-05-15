@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         typcast_my_object();
 
         String mHeadings[]=getResources().getStringArray(R.array.headings);
-        String mDescriptions[]=getResources().getStringArray(R.array.descriptions);;
+        String mDescriptions[]=getResources().getStringArray(R.array.descriptions);
         CustomSlider mCustomerslider = new CustomSlider(this, mHeadings, mDescriptions);
 
         mViewpager.setAdapter(mCustomerslider);
@@ -65,6 +66,18 @@ public class MainActivity extends AppCompatActivity {
 
         mExpandableListAdapter = new CustomExpandableListViewAdapter(this, list_group,list_children);
         mExpandableListView.setAdapter(mExpandableListAdapter);
+
+        mExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
+                if (i==10){
+                    Intent intent = new Intent(MainActivity.this, GrammarTestActivity.class);
+                    startActivity(intent);
+                }
+                return true;
+            }
+        });
+
 
         mActionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawer,R.string.drawer_open,R.string.drawer_closer){
             @Override

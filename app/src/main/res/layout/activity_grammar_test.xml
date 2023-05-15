@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".GrammarTestActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="#D6D6D6"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/level_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:text="LEVEL 1"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/level_textview"
+            android:padding="10dp"
+            android:text="Этот тест содержит 30 вопросов, каждый из которых даёт 4 балла. Убедитесь, что выбрали верные варианты ответа перед отправкой"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="10dp"
+            android:text="Выберите правильный ответ"
+            android:textColor="#009688"
+            android:textStyle="bold"
+
+
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FFDADA"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/question_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="1:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/question_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/question_counter"
+            android:padding="10dp"
+            android:text="Это первый номер нашего грамматического теста." />
+
+        <RadioGroup
+            android:id="@+id/option_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/question_text"
+            android:layout_alignLeft="@+id/question_text"
+            android:padding="10dp">
+
+            <RadioButton
+                android:id="@+id/option_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="option_a" />
+
+            <RadioButton
+                android:id="@+id/option_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="option_b" />
+
+            <RadioButton
+                android:id="@+id/option_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="option_c" />
+
+        </RadioGroup>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#D6D6D6"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/total_points_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Очки:" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/total_points_textview"
+            android:text="Среднее:" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Отправить" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

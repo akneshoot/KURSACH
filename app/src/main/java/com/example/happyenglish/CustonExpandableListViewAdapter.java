@@ -112,7 +112,7 @@ class ExpandableListData{
         expandableList.put("REPORTED SPEECH", ReportedSpeech);
         expandableList.put("VERBS", verbs);
         expandableList.put("IDIOMS", idioms);
-        expandableList.put("GRAMMAR QUIZ", englishGrammarTest);
+        expandableList.put("GRAMMAR TESTS", englishGrammarTest);
 
 
 
