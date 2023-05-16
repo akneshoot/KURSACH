@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/level_textview"
             android:padding="10dp"
-            android:text="Этот тест содержит 30 вопросов, каждый из которых даёт 4 балла. Убедитесь, что выбрали верные варианты ответа перед отправкой"
+            android:text="Этот тест содержит 25 вопросов, каждый из которых даёт баллы. Убедитесь, что выбрали верные варианты ответа перед отправкой"
             android:textColor="#000000" />
 
         <TextView
