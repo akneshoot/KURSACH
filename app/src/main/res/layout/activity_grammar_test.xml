@@ -20,17 +20,18 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:padding="10dp"
-            android:text="LEVEL 1"
+            android:text="level A1"
             android:textColor="#000000"
             android:textSize="25dp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/test_description_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/level_textview"
             android:padding="10dp"
-            android:text="Этот тест содержит 25 вопросов, каждый из которых даёт баллы. Убедитесь, что выбрали верные варианты ответа перед отправкой"
+            android:text="Описание"
             android:textColor="#000000" />
 
         <TextView

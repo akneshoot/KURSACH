@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActionBarDrawerToggle mActionBarDrawerToggle;
 
+    private int lastExpandedPosition=-1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,12 +70,24 @@ public class MainActivity extends AppCompatActivity {
 
         mExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
-            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
-                if (i==10){
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long l) {
+                if (groupPosition==10){
                     Intent intent = new Intent(MainActivity.this, GrammarTestActivity.class);
+                    intent.putExtra("child_id",childPosition);
                     startActivity(intent);
                 }
                 return true;
+            }
+        });
+
+        mExpandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            @Override
+            public void onGroupExpand(int groupPosition) {
+
+            if (lastExpandedPosition!=-1 && groupPosition!= lastExpandedPosition){
+                mExpandableListView.collapseGroup(lastExpandedPosition);
+            }
+            lastExpandedPosition=groupPosition;
             }
         });
 
