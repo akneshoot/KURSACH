@@ -110,23 +110,27 @@
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/total_points_textview"
+            android:id="@+id/test_points_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Очки:" />
+            android:text="Очки теста:"
+            android:padding="5dp"/>
 
         <TextView
+            android:id="@+id/current_test_average_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/total_points_textview"
-            android:text="Среднее:" />
+            android:layout_below="@id/test_points_textView"
+            android:text="Среднее:"
+            android:padding="5dp"/>
 
         <Button
             android:id="@+id/btn_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Отправить" />
+            android:text="Отправить"
+            android:layout_below="@id/current_test_average_textView"/>
 
 
     </RelativeLayout>

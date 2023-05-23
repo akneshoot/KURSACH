@@ -1,7 +1,9 @@
 package com.example.happyenglish;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -31,6 +33,20 @@ public class GrammarTestActivity extends AppCompatActivity {
     private Button submit_btn;
 
     private int current_question_index=0;
+
+    //
+    private int test_points_counter=0;
+    private float test_current_average_counter=0f;
+    private TextView test_points_tv;
+    private TextView test_current_average_tv;
+
+    //test result views
+    private  TextView report_total_question_tv, report_answered_correct_tv, report_answered_wrong_tv, report_test_points_tv, report_current_average_tv, report_overall_average_tv;
+   private int setLevelForQuestion_TAG;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +66,8 @@ public class GrammarTestActivity extends AppCompatActivity {
                   if (isCorrectAnswerSelect()) {
                       //Toast.makeText(this, "Правильно!", Toast.LENGTH_SHORT).show();
                       mCustomToast(R.drawable.correct);
+                      test_points_counter++;
+                      test_current_average_counter = (float) 100/questionBundle.size()*test_points_counter;
                       gotNext();
                 }else{
                       //Toast.makeText(this, "Неправильно!", Toast.LENGTH_SHORT).show();
@@ -68,7 +86,39 @@ public class GrammarTestActivity extends AppCompatActivity {
         }else{
             Toast.makeText(this, "Тестирование окончено!", Toast.LENGTH_SHORT).show();
             submit_btn.setEnabled(false);
+
+            test_end_show_result_dialog(setLevelForQuestion_TAG);
         }
+
+    }
+
+    private void test_end_show_result_dialog(int setLevelForQuestion_tag) {
+
+        LayoutInflater layoutInflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+        View view = layoutInflater.inflate(R.layout.grammar_test_result_layout, null, false);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Отчёт о тесте");
+        builder.setView(view);
+
+        report_total_question_tv=view.findViewById(R.id.tv_total_question);
+        report_answered_correct_tv=view.findViewById(R.id.tv_answer_correct);
+        report_answered_wrong_tv=view.findViewById(R.id.tv_answer_wrong);
+        report_test_points_tv=view.findViewById(R.id.tv_test_points);
+        report_current_average_tv=view.findViewById(R.id.tv_current_average);
+        report_overall_average_tv=view.findViewById(R.id.tv_overall_average);
+
+        report_total_question_tv.setText(Integer.toString(questionBundle.size()));
+        report_answered_correct_tv.setText(Integer.toString(test_points_counter));
+        report_answered_wrong_tv.setText(Integer.toString(questionBundle.size()- test_points_counter));
+        report_test_points_tv.setText(Integer.toString(test_points_counter));
+        report_current_average_tv.setText(Float.toString(test_current_average_counter));
+        report_overall_average_tv.setText("Не найдено");
+
+
+        Dialog dialog = builder.create();
+        dialog.show();
+
+
 
     }
 
@@ -97,13 +147,16 @@ public class GrammarTestActivity extends AppCompatActivity {
         option_b.setText(questionBundle.get(current_question_index).getOption_b());
         option_c.setText(questionBundle.get(current_question_index).getOption_c());
         option_group.clearCheck();
+
+        test_points_tv.setText("Тестовые очки:" + Integer.toString(test_points_counter));
+        test_current_average_tv.setText("Среднее значение:" + Float.toString(test_current_average_counter));
     }
 
     private void setLevelForQuestion() {
 
-        int child_id = getIntent().getIntExtra("child_id", 0);
+         setLevelForQuestion_TAG = getIntent().getIntExtra("child_id", 0);
 
-        switch (child_id){
+        switch (setLevelForQuestion_TAG){
             case 0:
                 level_a1();
                 level_tv.setText("Level A1");
@@ -679,6 +732,9 @@ public class GrammarTestActivity extends AppCompatActivity {
         submit_btn=findViewById(R.id.btn_submit);
         level_tv=findViewById(R.id.level_textview);
         test_description_tv=findViewById(R.id.test_description_textview);
+
+        test_points_tv=findViewById(R.id.test_points_textView);
+        test_current_average_tv =findViewById(R.id.current_test_average_textView);
 
 
     }

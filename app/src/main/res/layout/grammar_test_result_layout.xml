@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/left"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Всего вопросов: "
+            android:padding="5dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Отвечено правильно: "
+            android:padding="5dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Отвечено неправильно: "
+            android:padding="5dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Тестовые очки: "
+            android:padding="5dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Среднее значение: "
+            android:padding="5dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Общий средний балл: "
+            android:padding="5dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_toRightOf="@id/left"
+        android:id="@+id/right"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_total_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_answer_correct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_answer_wrong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_test_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_current_average"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tv_overall_average"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:padding="5dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_screenshot"
+        android:text="Screenshot"
+        android:textAllCaps="false"
+        android:layout_below="@id/left"
+        android:layout_toLeftOf="@id/right"
+        android:drawableLeft="@drawable/screenshot"
+        />
+
+
+
+
+
+
+
+</RelativeLayout>
