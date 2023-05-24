@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -14,4 +15,31 @@
         android:textColor="#182D6E"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
         />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginRight="7dp"
+            android:id="@+id/progressbar_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="0%"
+            android:layout_alignParentRight="true"
+            android:textColor="#ffffffff"
+            android:visibility="gone"
+            />
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/test_progressbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/progressbar_text"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+            />
+
+    </RelativeLayout>
 </LinearLayout>

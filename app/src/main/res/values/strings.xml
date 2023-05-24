@@ -23,6 +23,6 @@
         <item>Grammar Quiz. Чтобы начать тест и узнать свои знания английского, нажмите на картинку...Удачи!!!</item>
     </string-array>
 
-    <string name="drawer_closer">the drawer has been closed</string>
-    <string name="drawer_open">the drawer has been opened</string>
+    <string name="drawer_closer">Меню-бургер закрыт</string>
+    <string name="drawer_open">Меню-бургер открыт</string>
 </resources>

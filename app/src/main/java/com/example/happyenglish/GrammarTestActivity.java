@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -32,6 +33,8 @@ public class GrammarTestActivity extends AppCompatActivity {
     private RadioButton option_c;
     private Button submit_btn;
 
+
+
     private int current_question_index=0;
 
     //
@@ -39,6 +42,14 @@ public class GrammarTestActivity extends AppCompatActivity {
     private float test_current_average_counter=0f;
     private TextView test_points_tv;
     private TextView test_current_average_tv;
+
+    private float a1_average;
+    private float a2_average;
+    private float b1_average;
+    private float b2_average;
+    private float c1_average;
+    private float c2_average;
+    private float test_overall_average;
 
     //test result views
     private  TextView report_total_question_tv, report_answered_correct_tv, report_answered_wrong_tv, report_test_points_tv, report_current_average_tv, report_overall_average_tv;
@@ -94,6 +105,20 @@ public class GrammarTestActivity extends AppCompatActivity {
 
     private void test_end_show_result_dialog(int setLevelForQuestion_tag) {
 
+        if(setLevelForQuestion_tag==0){
+            setDataToSharedPreferences("a1_average",test_current_average_counter);
+        } else if (setLevelForQuestion_tag==1){
+            setDataToSharedPreferences("a2_average", test_current_average_counter);
+        } else if (setLevelForQuestion_tag==2){
+            setDataToSharedPreferences("b1_average", test_current_average_counter);
+        } else if (setLevelForQuestion_tag==3) {
+            setDataToSharedPreferences("b2_average", test_current_average_counter);
+        } else if (setLevelForQuestion_tag==4) {
+            setDataToSharedPreferences("c1_average", test_current_average_counter);
+        } else if (setLevelForQuestion_tag==5) {
+            setDataToSharedPreferences("c2_average", test_current_average_counter);
+        }
+
         LayoutInflater layoutInflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.grammar_test_result_layout, null, false);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -112,7 +137,7 @@ public class GrammarTestActivity extends AppCompatActivity {
         report_answered_wrong_tv.setText(Integer.toString(questionBundle.size()- test_points_counter));
         report_test_points_tv.setText(Integer.toString(test_points_counter));
         report_current_average_tv.setText(Float.toString(test_current_average_counter));
-        report_overall_average_tv.setText("Не найдено");
+        report_overall_average_tv.setText(Float.toString(getDataFromSharedPreferences()));
 
 
         Dialog dialog = builder.create();
@@ -750,5 +775,40 @@ public class GrammarTestActivity extends AppCompatActivity {
         mToast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL, 0, 0);
         mToast.setDuration(Toast.LENGTH_SHORT);
         mToast.show();
+    }
+
+
+    private void setDataToSharedPreferences(String level_name, float value){
+
+        SharedPreferences setting = this.getSharedPreferences(level_name, this.MODE_PRIVATE);
+        SharedPreferences.Editor editor = setting.edit();
+        editor.putFloat(level_name, value);
+        editor.commit();
+    }
+
+    public float getDataFromSharedPreferences(){
+        SharedPreferences setting_a1 = this.getSharedPreferences("a1_average", this.MODE_PRIVATE);
+        a1_average = setting_a1.getFloat("a1_average", 0);
+
+        SharedPreferences setting_a2 = this.getSharedPreferences("a2_average", this.MODE_PRIVATE);
+        a2_average = setting_a2.getFloat("a2_average", 0);
+
+        SharedPreferences setting_b1 = this.getSharedPreferences("b1_average", this.MODE_PRIVATE);
+        b1_average = setting_b1.getFloat("b1_average", 0);
+
+        SharedPreferences setting_b2 = this.getSharedPreferences("b2_average", this.MODE_PRIVATE);
+        b2_average = setting_b2.getFloat("b2_average", 0);
+
+        SharedPreferences setting_c1 = this.getSharedPreferences("c1_average", this.MODE_PRIVATE);
+        c1_average = setting_c1.getFloat("c1_average", 0);
+
+        SharedPreferences setting_c2 = this.getSharedPreferences("c2_average", this.MODE_PRIVATE);
+        c2_average = setting_c2.getFloat("c2_average", 0);
+
+
+        test_overall_average = (a1_average + a2_average + b1_average + b2_average + c1_average + c2_average)/600*100;
+
+
+        return test_overall_average;
     }
 }
