@@ -8,9 +8,9 @@
     <TextView
         android:id="@+id/child_textview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="Group Options"
-        android:textColor="#FF9800"
+        android:textColor="#252422"
         android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
         android:paddingTop="10dp"
         />
@@ -28,6 +28,7 @@
             android:layout_alignParentRight="true"
             android:textColor="#ffffffff"
             android:visibility="gone"
+            android:alpha="0.5"
             />
         <ProgressBar
             android:visibility="gone"

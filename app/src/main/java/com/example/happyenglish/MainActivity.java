@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.print.pdf.PrintedPdfDocument;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
+import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -75,7 +77,13 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, GrammarTestActivity.class);
                     intent.putExtra("child_id",childPosition);
                     startActivity(intent);
+                }else if(groupPosition!=10){
+                    Intent intent = new Intent(MainActivity.this, PDFViewer.class);
+                    intent.putExtra("child_id",childPosition);
+                    intent.putExtra("group_id", groupPosition);
+                    startActivity(intent);
                 }
+
                 return true;
             }
         });

@@ -89,20 +89,6 @@
 
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_screenshot"
-        android:text="Screenshot"
-        android:textAllCaps="false"
-        android:layout_below="@id/left"
-        android:layout_toLeftOf="@id/right"
-        android:drawableLeft="@drawable/screenshot"
-        />
-
-
-
-
 
 
 
