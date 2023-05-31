@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.5"
-        android:background="#D6D6D6"
+        android:background="#5CFCFDFD"
         android:padding="10dp">
 
         <TextView
@@ -52,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#FFDADA"
+        android:background="#FDFCFC"
         android:padding="10dp">
 
         <TextView
@@ -106,31 +106,31 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#D6D6D6"
+        android:background="#6AF7FAF9"
         android:padding="10dp">
 
         <TextView
             android:id="@+id/test_points_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Очки теста:"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:text="Очки теста:" />
 
         <TextView
             android:id="@+id/current_test_average_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/test_points_textView"
-            android:text="Среднее:"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:text="Среднее:" />
 
         <Button
             android:id="@+id/btn_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/current_test_average_textView"
             android:layout_centerHorizontal="true"
-            android:text="Отправить"
-            android:layout_below="@id/current_test_average_textView"/>
+            android:text="Отправить" />
 
 
     </RelativeLayout>
