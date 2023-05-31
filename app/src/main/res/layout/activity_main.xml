@@ -46,7 +46,8 @@
     android:layout_width="230dp"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_gravity="left">
+    android:layout_gravity="left"
+    android:background="#CB899791">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="100dp"
@@ -72,7 +73,6 @@
         android:layout_width="230dp"
         android:layout_height="match_parent"
         android:layout_gravity="left"
-        android:background="#CB899791"
         android:dividerHeight="0.3dp"
         android:divider="#CB899791"
         android:indicatorLeft="?android:attr/expandableListPreferredChildIndicatorLeft"
