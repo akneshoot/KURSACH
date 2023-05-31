@@ -10,9 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Group Options"
-        android:textSize="15dp"
+        android:textSize="23dp"
         android:textStyle="bold"
-        android:textColor="#182D6E"
+        android:textColor="#FFFFFF"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
         android:paddingTop="3.5dp"
         />

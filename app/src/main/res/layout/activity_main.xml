@@ -47,7 +47,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="left"
-    android:background="#CB899791">
+    android:background="#B0507170">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="100dp"

@@ -109,7 +109,7 @@ public class CustomExpandableListViewAdapter extends BaseExpandableListAdapter {
             progressbar_text.setVisibility(View.VISIBLE);
             test_progressbar.setVisibility(View.VISIBLE);
 
-            test_progressbar.getProgressDrawable().setColorFilter(Color.RED,
+            test_progressbar.getProgressDrawable().setColorFilter(Color.GREEN,
                     PorterDuff.Mode.SRC_IN);
 
             if (childPosition==0){
@@ -313,17 +313,17 @@ class ExpandableListData{
 
 
 
-        expandableList.put("PARTS OF SPEECH", partsofSpeech);
-        expandableList.put("TWELVE VERB TENSES", englishTenses);
-        expandableList.put("ARTICLES", articles);
-        expandableList.put("POSSESSIVES", possessives);
-        expandableList.put("CONDITIONALS", conditionals);
-        expandableList.put("INFINITIVE & GERUNDS", infinitivesGerund);
-        expandableList.put("RELATIVE CLAUSES", relativeClauses);
-        expandableList.put("REPORTED SPEECH", ReportedSpeech);
-        expandableList.put("VERBS", verbs);
-        expandableList.put("IDIOMS", idioms);
-        expandableList.put("GRAMMAR TESTS", englishGrammarTest);
+        expandableList.put("Parts of speech", partsofSpeech);
+        expandableList.put("Twelve verb tenses", englishTenses);
+        expandableList.put("Articles", articles);
+        expandableList.put("Possessives", possessives);
+        expandableList.put("Conditionals", conditionals);
+        expandableList.put("Infinitive & Gerund", infinitivesGerund);
+        expandableList.put("Relative clauses", relativeClauses);
+        expandableList.put("Reported speech", ReportedSpeech);
+        expandableList.put("Verbs", verbs);
+        expandableList.put("Idioms", idioms);
+        expandableList.put("Grammar tests", englishGrammarTest);
 
 
 
