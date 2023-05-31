@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Group Options"
-        android:textSize="23dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"

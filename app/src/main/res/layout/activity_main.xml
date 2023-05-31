@@ -76,8 +76,8 @@
         android:dividerHeight="0.3dp"
         android:divider="#CB899791"
         android:indicatorLeft="?android:attr/expandableListPreferredChildIndicatorLeft"
+        android:childDivider="@color/white"
 
-        android:childDivider="#FFFFFF"
         />
     </LinearLayout>
 
