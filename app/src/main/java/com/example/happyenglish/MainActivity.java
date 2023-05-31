@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, R.string.drawer_closer,Toast.LENGTH_SHORT).show();
             }
         };
-        // mDrawer.setDrawerListener(mActionBarDrawerToggle);
+         mDrawer.setDrawerListener(mActionBarDrawerToggle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 

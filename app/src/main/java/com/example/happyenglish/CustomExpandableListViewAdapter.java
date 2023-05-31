@@ -299,7 +299,7 @@ class ExpandableListData{
         articles.add("Definite & Indefinite Article");
 
         List<String> possessives = new ArrayList<>();
-        possessives.add("adjectives & pronoun");
+        possessives.add("Adjectives & Pronoun");
 
 
         List <String> partsofSpeech= new ArrayList<String>();
