@@ -8,13 +8,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.print.pdf.PrintedPdfDocument;
+import android.text.Html;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.barteksc.pdfviewer.PDFView;
@@ -41,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mActionBarDrawerToggle;
 
     private int lastExpandedPosition=-1;
+
+    //dotLayout
+    private LinearLayout dotsLayout;
+    private TextView dotsView [];
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,9 +123,12 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, R.string.drawer_closer,Toast.LENGTH_SHORT).show();
             }
         };
-        mDrawer.setDrawerListener(mActionBarDrawerToggle);
+        // mDrawer.setDrawerListener(mActionBarDrawerToggle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        sliderDotCreator(0);
+        mViewpager.addOnPageChangeListener(onPageChangeListener);
 
 
 
@@ -129,9 +142,12 @@ public class MainActivity extends AppCompatActivity {
         btnMenu=findViewById(R.id.btn_menu);
         mDrawer=findViewById(R.id.mDrawer);
 
+
         mExpandableListView = findViewById(R.id.expandable_listview);
         list_children= ExpandableListData.getData();
         list_group = new ArrayList<String>(list_children.keySet());
+
+        dotsLayout=findViewById(R.id.dotsLayout);
 
     }
 
@@ -147,4 +163,42 @@ public class MainActivity extends AppCompatActivity {
         }
         return super .onOptionsItemSelected(item);
     }
+
+    private void sliderDotCreator(int position){
+        dotsView = new TextView[7];
+        dotsLayout.removeAllViews();
+
+        for(int i=0; i<dotsView.length; i++){
+            dotsView[i]= new TextView(this);
+            dotsView[i].setText(Html.fromHtml("&#8226;"));
+            dotsView[i].setTextSize(35);
+            dotsView[i].setTextColor(getResources().getColor(R.color.teal_700));
+            dotsLayout.addView(dotsView[i]);
+        }
+        if(dotsView.length>0){
+            dotsView[position].setTextColor(Color.LTGRAY);
+            dotsView[position].setTextSize(40);
+        }
+
+    }
+
+    ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+
+            sliderDotCreator(position);
+
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
+    };
 }

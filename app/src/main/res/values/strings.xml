@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HappyEnglish</string>
+    <string name="app_name">Happy English</string>
 
     <string-array name="headings">
 
@@ -23,6 +23,69 @@
         <item>Grammar Quiz. Чтобы начать тест и узнать свои знания английского, нажмите на картинку...Удачи!!!</item>
     </string-array>
 
-    <string name="drawer_closer">Меню-бургер закрыт</string>
-    <string name="drawer_open">Меню-бургер открыт</string>
+    <string name="drawer_closer">Меню закрыто</string>
+    <string name="drawer_open">Меню открыто</string>
+    
+    <string-array name="slider_tenses_titles">
+        <item>Present Simple</item>
+        <item>Present Continuous</item>
+        <item>Present Perfect </item>
+        <item>Present Perfect Continuous</item>
+        <item>Past Simple</item>
+        <item>Past Continuous</item>
+        <item>Past Perfect </item>
+        <item>Past Perfect Continuous</item>
+        <item>Future Simple</item>
+        <item>Future Continuous</item>
+        <item>Future Perfect </item>
+        <item>Future Perfect Continuous</item>
+
+    </string-array>
+
+    <string-array name="slider_conditional_titles">
+        <item> Zero Conditional </item>
+        <item> 1st Conditional </item>
+        <item> 2nd Conditional </item>
+        <item> 3rd Conditional </item>
+        <item> Mix Conditional </item>
+
+    </string-array>
+
+    <string-array name="slider_idiom_titles">
+        <item> Idioms </item>
+        <item> Metaphors </item>
+        <item> Similes </item>
+
+    </string-array>
+
+    <string-array name="slider_test_titles">
+        <item> Level A1 </item>
+        <item> Level A2 </item>
+        <item> Level B1 </item>
+        <item> Level B2 </item>
+        <item> Level C1 </item>
+        <item> Level C2 </item>
+
+    </string-array>
+
+    <string-array name="slider_title_gerunds">
+        <item> Gerunds </item>
+        <item> Infinitives </item>
+        <item> Infinitives or Gerunds </item>
+
+    </string-array>
+
+    <string-array name="slider_title_relatives">
+        <item> Defining Relative Clauses </item>
+        <item> Non-defining Relative Clauses </item>
+    </string-array>
+
+    <string-array name="slider_title_directspeech">
+        <item> Direct/Indirect speech </item>
+        <item> Reported Questions </item>
+        <item> Reported Commands and Request </item>
+
+    </string-array>
+
+
 </resources>
