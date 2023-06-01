@@ -132,7 +132,7 @@ public class CustomSlider extends PagerAdapter {
                 }
 
 
-                Toast.makeText(context, "Вы выбрали пункт" + i, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Вы выбрали пункт " + (i+1), Toast.LENGTH_SHORT).show();
 
 
             }
