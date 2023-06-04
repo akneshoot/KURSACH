@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/menu">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal" >
+
+
+        <EditText
+            android:id="@+id/txtInput"
+            android:layout_width="250dp"
+            android:hint="Enter a word to pronounce"
+            android:lines="25"
+            android:scrollHorizontally="false"
+            android:inputType="textMultiLine"
+            android:scrollbars="vertical"
+            android:minWidth="10.0dip"
+            android:maxWidth="5.0dip"
+            android:layout_marginTop="30dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_height="120dp"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"/>
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btnSpeak"
+            android:layout_marginTop="10px"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:background="@drawable/rect_rounded_button"
+            android:text="Speak"
+            android:onClick="speakText"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_marginTop="10px"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:text="Clear"
+            android:background="@drawable/rect_rounded_button"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_marginTop="10px"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:text="Back"
+            android:background="@drawable/rect_rounded_button" />
+
+    </LinearLayout>
+
+</LinearLayout>

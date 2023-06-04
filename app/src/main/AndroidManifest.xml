@@ -4,17 +4,14 @@
 
     <application
         android:allowBackup="true"
+
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/icon"
-
-
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.HappyEnglish"
         tools:targetApi="31">
-
-
         <activity
             android:name=".PDFViewer"
             android:exported="false" />
@@ -28,6 +25,26 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".WORD"
+            android:label="@string/app_name"
+            android:exported="true">
+            <intent-filter>
+                <action android:name=".WORD" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SPEECH"
+            android:label="@string/app_name"
+            android:exported="true">
+            <intent-filter>
+                <action android:name=".SPEECH" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

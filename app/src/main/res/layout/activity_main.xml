@@ -22,10 +22,10 @@
             android:id="@+id/btn_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:layout_gravity="bottom"
+            android:layout_margin="1dp"
+            android:layout_gravity="right|bottom"
             android:background="#656461"
-            android:src="@drawable/menu"
+            android:src="@drawable/menu1"
             android:contentDescription="TODO" />
 
         <LinearLayout
@@ -35,6 +35,8 @@
             android:orientation="horizontal"
             android:layout_gravity="center|bottom"
             />
+
+
 
 
 
@@ -68,6 +70,30 @@
      android:layout_gravity="center"
      android:textAlignment="center"
      />
+
+
+        <Button
+            android:layout_marginTop="20px"
+            android:id="@+id/btnWord"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:background="@drawable/rect_rounded_button"
+            android:text="Pronunciation"
+            android:layout_marginLeft="30px"/>
+
+        <Button
+            android:layout_marginTop="20px"
+            android:id="@+id/Start"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:background="@drawable/rect_rounded_button"
+            android:text="Practice words"
+            android:layout_marginLeft="30px" />
+
+
+
+
+
     <ExpandableListView
         android:id="@+id/expandable_listview"
         android:layout_width="230dp"
@@ -77,8 +103,9 @@
         android:divider="#CB899791"
         android:indicatorLeft="?android:attr/expandableListPreferredChildIndicatorLeft"
         android:childDivider="@color/white"
-
+        android:layout_marginTop="20px"
         />
+
     </LinearLayout>
 
 

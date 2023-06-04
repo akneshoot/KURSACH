@@ -7,21 +7,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.print.pdf.PrintedPdfDocument;
 import android.text.Html;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -31,6 +32,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private ViewPager mViewpager;
+
+    Button btnListWord;
+    Button btnStart;
 
     FloatingActionButton btnMenu;
     DrawerLayout mDrawer;
@@ -51,10 +55,12 @@ public class MainActivity extends AppCompatActivity {
     private TextView dotsView [];
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        addButtonListener();
         
         typcast_my_object();
 
@@ -74,11 +80,19 @@ public class MainActivity extends AppCompatActivity {
                     mDrawer.openDrawer(Gravity.LEFT);
                 }
 
+
             }
         });
 
-        mExpandableListAdapter = new CustomExpandableListViewAdapter(this, list_group,list_children);
+
+
+
+
+
+
+            mExpandableListAdapter = new CustomExpandableListViewAdapter(this, list_group,list_children);
         mExpandableListView.setAdapter(mExpandableListAdapter);
+
 
         mExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
@@ -93,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("group_id", groupPosition);
                     startActivity(intent);
                 }
+
 
                 return true;
             }
@@ -111,10 +126,15 @@ public class MainActivity extends AppCompatActivity {
 
 
         mActionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawer,R.string.drawer_open,R.string.drawer_closer){
+
+
+
             @Override
             public void onDrawerOpened(View drawerView) {
+
                 super.onDrawerOpened(drawerView);
                 Toast.makeText(MainActivity.this, R.string.drawer_open,Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -126,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
          mDrawer.setDrawerListener(mActionBarDrawerToggle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-
         sliderDotCreator(0);
         mViewpager.addOnPageChangeListener(onPageChangeListener);
 
@@ -134,6 +153,31 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("WrongViewCast")
+    private void addButtonListener() {
+        btnListWord = (Button) findViewById (R.id.btnWord);
+        btnListWord.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent e = new Intent(MainActivity.this, WORD.class);
+                startActivity(e);
+
+
+            }
+        });
+        btnStart = (Button) findViewById(R.id.Start);
+        btnStart.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent e = new Intent(MainActivity.this, SPEECH.class);
+                startActivity(e);
+
+            }
+
+        });
+    }
 
 
     private void typcast_my_object() {
@@ -141,7 +185,6 @@ public class MainActivity extends AppCompatActivity {
         mViewpager=findViewById(R.id.viewPager);
         btnMenu=findViewById(R.id.btn_menu);
         mDrawer=findViewById(R.id.mDrawer);
-
 
         mExpandableListView = findViewById(R.id.expandable_listview);
         list_children= ExpandableListData.getData();
@@ -182,6 +225,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -200,5 +244,7 @@ public class MainActivity extends AppCompatActivity {
         public void onPageScrollStateChanged(int state) {
 
         }
+
     };
+
 }

@@ -32,6 +32,7 @@
             android:textColor="#ffffffff"
             android:visibility="gone"
             />
+
         <ProgressBar
             android:visibility="gone"
             android:id="@+id/test_progressbar"

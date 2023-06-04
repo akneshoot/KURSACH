@@ -17,15 +17,15 @@
         <item> В английском языке существует 12 глагольных времен, образованных путем сочетания прошедшего, настоящего и будущего времен с аспектами simple, progressive, perfect или perfect progressive.</item>
         <item> Conditionals - это структуры, которые выражают утверждение и его возможный результат.</item>
         <item> Gerunds and Infinitives иногда называют дополнениями к глаголу. Они могут функционировать как субъекты или объекты в предложении.</item>
-        <item> Relative clause — это предложение, вводимое относительным местоимением. Относительное местоимение — это тип местоимения, которое относится к предшествующему существительному в предложении.</item>
+        <item> Relative clause — это предложение, вводимое относительным местоимением.</item>
         <item>Direct and Indirect Speech. Прямая речь - это оригинальные или фактические слова говорящего, которые заключены в кавычки. </item>
-        <item>English Idioms - это распространенные выражения или поговорки, состоящие из комбинации отдельных слов, используемые носителями английского языка и не носителями английского языка в повседневной речи.</item>
+        <item>English Idioms - это распространенные выражения или поговорки, состоящие из комбинации отдельных слов.</item>
         <item>Grammar Quiz. Чтобы начать тест и узнать свои знания английского, нажмите на картинку...Удачи!!!</item>
     </string-array>
 
     <string name="drawer_closer">Меню закрыто</string>
     <string name="drawer_open">Меню открыто</string>
-    
+
     <string-array name="slider_tenses_titles">
         <item>Present Simple</item>
         <item>Present Continuous</item>
@@ -86,6 +86,17 @@
         <item> Reported Commands and Request </item>
 
     </string-array>
+    <string name="title_activity_word">WORD</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
