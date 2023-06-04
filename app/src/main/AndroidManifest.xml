@@ -18,8 +18,8 @@
         <activity
             android:name=".GrammarTestActivity"
             android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".OnBoarding"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

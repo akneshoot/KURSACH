@@ -20,17 +20,12 @@
         <EditText
             android:id="@+id/txtInput"
             android:layout_width="250dp"
+            android:textColor="@color/white"
             android:hint="Enter a word to pronounce"
             android:lines="25"
-            android:scrollHorizontally="false"
-            android:inputType="textMultiLine"
-            android:scrollbars="vertical"
-            android:minWidth="10.0dip"
-            android:maxWidth="5.0dip"
             android:layout_marginTop="30dp"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:textColor="@color/white"
             android:layout_height="120dp"/>
 
     </LinearLayout>
@@ -38,55 +33,43 @@
 
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="20dp"/>
+        android:layout_height="20dp"
+        android:layout_marginTop="-130px"
+        android:textColor="@color/white"/>
+    <Button
+        android:id="@+id/btnSpeak"
+        android:layout_marginTop="700px"
+        android:layout_marginLeft="50px"
+        android:textColor="@color/white"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rect_rounded_button"
+        android:text="Speak"
+        android:onClick="speakText"/>
 
-    <LinearLayout
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/btnSpeak"
-            android:layout_marginTop="10px"
-            android:layout_width="160dp"
-            android:layout_height="50dp"
-            android:background="@drawable/rect_rounded_button"
-            android:text="Speak"
-            android:onClick="speakText"/>
 
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal" >
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_marginTop="20px"
+        android:layout_marginLeft="50px"
+        android:textColor="@color/white"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:text="Clear"
+        android:background="@drawable/rect_rounded_button"/>
 
-        <Button
-            android:id="@+id/btnClear"
-            android:layout_marginTop="10px"
-            android:layout_width="160dp"
-            android:layout_height="50dp"
-            android:text="Clear"
-            android:background="@drawable/rect_rounded_button"/>
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_marginTop="20px"
+        android:layout_marginLeft="50px"
+        android:textColor="@color/white"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:text="Back"
+        android:background="@drawable/rect_rounded_button" />
 
-    <LinearLayout
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_marginTop="10px"
-            android:layout_width="160dp"
-            android:layout_height="50dp"
-            android:text="Back"
-            android:background="@drawable/rect_rounded_button" />
-
-    </LinearLayout>
 
 </LinearLayout>
