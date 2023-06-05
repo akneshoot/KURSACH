@@ -303,7 +303,7 @@ class ExpandableListData{
 
 
         List <String> partsofSpeech= new ArrayList<String>();
-        partsofSpeech.add("noun, pronoun, adjective,verb ...");
+        partsofSpeech.add("1000 base words");
 
         List<String> adverbs = new ArrayList<>();
         adverbs.add("Adverbs of Manner");
@@ -313,7 +313,7 @@ class ExpandableListData{
 
 
 
-        expandableList.put("Parts of speech", partsofSpeech);
+        expandableList.put("Vocabulary", partsofSpeech);
         expandableList.put("Twelve verb tenses", englishTenses);
         expandableList.put("Articles", articles);
         expandableList.put("Possessives", possessives);
