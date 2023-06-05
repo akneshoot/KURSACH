@@ -60,7 +60,7 @@ public class OnBoarding extends AppCompatActivity {
                 if(position == introList.size()){
                     savePrefData();
                     Toast.makeText(OnBoarding.this, "Hello", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(OnBoarding.this, MainActivity.class);
+                    Intent intent = new Intent(OnBoarding.this, Vhod.class);
                     startActivity(intent);
                 }
 
