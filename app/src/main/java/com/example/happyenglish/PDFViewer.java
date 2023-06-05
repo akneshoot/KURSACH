@@ -23,6 +23,9 @@ public class PDFViewer extends AppCompatActivity {
         group_id=getIntent().getIntExtra("group_id",0);
 
         if (group_id==0){
+            if (child_id==0){
+                mPdfView.fromAsset("1000_words.pdf").load();
+            }
 
         }else if(group_id==1){
             if(child_id==0){
