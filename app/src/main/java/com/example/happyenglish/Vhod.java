@@ -31,9 +31,14 @@ public class Vhod extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewModel.loginV(ed1.getText().toString(), ed2.getText().toString());
-                Intent e = new Intent(Vhod.this, MainActivity.class);
-                startActivity(e);
+                viewModel.loginV(ed1.getText().toString(), ed2.getText().toString()).observe(Vhod.this,aBoolean -> {
+                    if (aBoolean) {
+                        Intent e = new Intent(Vhod.this, MainActivity.class);
+                        startActivity(e);
+                    }
+                });
+
+
             }
         });
         btnVhod = (Button) findViewById (R.id.button3);
