@@ -1,8 +1,5 @@
 package com.example.happyenglish;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,6 +11,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -70,7 +70,7 @@ public class GrammarTestActivity extends AppCompatActivity {
         submit_btn.setOnClickListener(v -> {
 
             if (option_group.getCheckedRadioButtonId()==-1){
-                Toast.makeText(GrammarTestActivity.this, "Ничего не выбрано!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(GrammarTestActivity.this, "Nothing is selected!", Toast.LENGTH_SHORT).show();
             } else
             {
 
@@ -95,7 +95,7 @@ public class GrammarTestActivity extends AppCompatActivity {
         if (current_question_index<questionBundle.size()){
             setQuestionElementsOnViews(current_question_index);
         }else{
-            Toast.makeText(this, "Тестирование окончено!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Testing is over!", Toast.LENGTH_SHORT).show();
             submit_btn.setEnabled(false);
 
             test_end_show_result_dialog(setLevelForQuestion_TAG);

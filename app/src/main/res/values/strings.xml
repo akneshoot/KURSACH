@@ -23,8 +23,8 @@
         <item>Grammar Quiz. Чтобы начать тест и узнать свои знания английского, нажмите на картинку...Удачи!!!</item>
     </string-array>
 
-    <string name="drawer_closer">Меню закрыто</string>
-    <string name="drawer_open">Меню открыто</string>
+    <string name="drawer_closer">Menu is closed</string>
+    <string name="drawer_open">Menu is open</string>
 
     <string-array name="slider_tenses_titles">
         <item>Present Simple</item>

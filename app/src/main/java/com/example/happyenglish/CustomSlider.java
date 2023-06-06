@@ -72,7 +72,7 @@ public class CustomSlider extends PagerAdapter {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-        builder.setTitle("Сделайте выбор");
+        builder.setTitle("Make a choice");
         final int slider_title_arrays[] = {
                 R.array.slider_tenses_titles,
                 R.array.slider_conditional_titles,
@@ -132,7 +132,7 @@ public class CustomSlider extends PagerAdapter {
                 }
 
 
-                Toast.makeText(context, "Вы выбрали пункт " + (i+1), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "You have selected the item " + (i+1), Toast.LENGTH_SHORT).show();
 
 
             }

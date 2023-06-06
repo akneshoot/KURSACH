@@ -1,7 +1,5 @@
 package com.example.happyenglish;
 
-import java.util.Locale;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +9,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.util.Locale;
 
 public class SPEECH extends Activity {
 
@@ -53,7 +53,6 @@ public class SPEECH extends Activity {
         btnBack.setOnClickListener(new OnClickListener() {
 
             public void onClick(View v) {
-                // TODO Auto-generated method stub
 
                 Intent e = new Intent(SPEECH.this, MainActivity.class);
                 startActivity(e);

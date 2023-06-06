@@ -1,12 +1,5 @@
 package com.example.happyenglish;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.viewpager.widget.ViewPager;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
@@ -18,10 +11,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -35,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnListWord;
     Button btnStart;
+
+    Button btnExit;
 
     FloatingActionButton btnMenu;
     DrawerLayout mDrawer;
@@ -177,7 +178,20 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+        btnExit = (Button) findViewById(R.id.Exit);
+        btnExit.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "You have logged out of the profile.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Please log in to the app.", Toast.LENGTH_SHORT).show();
+                Intent e = new Intent(MainActivity.this, Vhod.class);
+                startActivity(e);
+
+            }
+
+        });
     }
+
 
 
     private void typcast_my_object() {

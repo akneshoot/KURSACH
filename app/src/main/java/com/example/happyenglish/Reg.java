@@ -1,13 +1,14 @@
 package com.example.happyenglish;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.happyenglish.data.User;
 
@@ -26,12 +27,24 @@ public class Reg extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewModel.registration(new User(
-                        mail.getText().toString(), password.getText().toString(),login.getText().toString()
-                ));
+                try {
+                    viewModel.registration(new User(
+                            mail.getText().toString(), password.getText().toString(),login.getText().toString()
+                    ));
+                    Toast.makeText(getApplicationContext(), "Hello!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "It's time to learn something new!", Toast.LENGTH_SHORT).show();
+                    Intent e = new Intent(Reg.this, MainActivity.class);
+                    startActivity(e);
+                } catch (User.InvalidEmailException e) {
+                    Toast.makeText(Reg.this, "Email is incorrect", Toast.LENGTH_SHORT).show();
+                }catch (User.InvalidPasswordException e) {
+                    Toast.makeText(Reg.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
+                }catch (User.InvalidNameException e) {
+                    Toast.makeText(Reg.this, "Name is incorrect", Toast.LENGTH_SHORT).show();
+                }
 
-                Intent e = new Intent(Reg.this, MainActivity.class);
-                startActivity(e);
+
+
 
             }
         });

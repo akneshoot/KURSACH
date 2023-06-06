@@ -1,14 +1,13 @@
 package com.example.happyenglish;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 
 
@@ -31,10 +30,22 @@ public class Vhod extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String username = ed1.getText().toString().trim();
+                String password = ed2.getText().toString().trim();
+                if (username.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(Vhod.this, "Please enter your username and password.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 viewModel.loginV(ed1.getText().toString(), ed2.getText().toString()).observe(Vhod.this,aBoolean -> {
                     if (aBoolean) {
+                        Toast.makeText(Vhod.this, "Hello!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Vhod.this, "It's time to learn something new!", Toast.LENGTH_SHORT).show();
                         Intent e = new Intent(Vhod.this, MainActivity.class);
                         startActivity(e);
+                    }
+                    else{
+                        Toast.makeText(Vhod.this, "There is no such login or password!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Vhod.this, "Please, go to registration.", Toast.LENGTH_SHORT).show();
                     }
                 });
 
