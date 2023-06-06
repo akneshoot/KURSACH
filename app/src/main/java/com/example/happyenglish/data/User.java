@@ -52,7 +52,7 @@ public class User {
     }
 
     private boolean isValidEmail(String email) {
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-z]+";
+        String emailPattern = "^[A-Za-z0-9+_.-]+@(mail\\.ru|gmail\\.com|yandex\\.ru)$";
         return Pattern.matches(emailPattern, email);
     }
 
