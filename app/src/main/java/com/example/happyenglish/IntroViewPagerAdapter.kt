@@ -1,59 +1,38 @@
-package com.example.happyenglish;
+package com.example.happyenglish
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.viewpager.widget.PagerAdapter
 
-import androidx.annotation.NonNull;
-import androidx.viewpager.widget.PagerAdapter;
-
-import com.example.happyenglish.Intro;
-
-import java.util.List;
-
-public class IntroViewPagerAdapter extends PagerAdapter {
-
-    Context context;
-    List<Intro> introList;
-
-    public IntroViewPagerAdapter(Context context, List<Intro> introList) {
-        this.context = context;
-        this.introList = introList;
+class IntroViewPagerAdapter(var context: Context, var introList: List<Intro>) : PagerAdapter() {
+    override fun getCount(): Int {
+        return introList.size
     }
 
-    @Override
-    public int getCount() {
-        return introList.size();
+    override fun isViewFromObject(view: View, `object`: Any): Boolean {
+        return view === `object`
     }
 
-    @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == object;
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+        container.removeView(`object` as View)
     }
 
-    @Override
-    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((View) object);
-    }
+    override fun instantiateItem(container: ViewGroup, position: Int): Any {
+        val view = LayoutInflater.from(context).inflate(R.layout.intro_screen_layout, null)
 
-    @NonNull
-    @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
-
-        View view = LayoutInflater.from(context).inflate(R.layout.intro_screen_layout, null);
-
-        ImageView image = view.findViewById(R.id.imageView);
-        TextView title = view.findViewById(R.id.title);
-        TextView desc = view.findViewById(R.id.desc);
+        val image = view.findViewById<ImageView>(R.id.imageView)
+        val title = view.findViewById<TextView>(R.id.title)
+        val desc = view.findViewById<TextView>(R.id.desc)
 
 
-        image.setImageResource(introList.get(position).getImageUrl());
-        title.setText(introList.get(position).getTitle());
-        desc.setText(introList.get(position).getDesc());
-        container.addView(view);
-        return view;
+        image.setImageResource(introList[position].imageUrl)
+        title.text = introList[position].title
+        desc.text = introList[position].desc
+        container.addView(view)
+        return view
     }
 }

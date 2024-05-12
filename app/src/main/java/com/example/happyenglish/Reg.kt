@@ -1,52 +1,52 @@
-package com.example.happyenglish;
+package com.example.happyenglish
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import com.example.happyenglish.data.User
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
+class Reg : AppCompatActivity() {
+    private lateinit var btnNext: Button
+    private lateinit var viewModel: RegViewModel
 
-import com.example.happyenglish.data.User;
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_reg)
 
-public class Reg extends AppCompatActivity {
-    Button btnNext;
-    private RegViewModel viewModel;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reg);
-        viewModel = new ViewModelProvider(this).get(RegViewModel.class);
-        EditText mail = findViewById(R.id.editTextTextPersonName);
-        EditText login = findViewById(R.id.editTextTextPersonName3);
-        EditText password = findViewById(R.id.editTextTextPersonName4);
-        btnNext = findViewById(R.id.button4);
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    viewModel.registration(new User(
-                            mail.getText().toString(), password.getText().toString(),login.getText().toString()
-                    ));
-                    Toast.makeText(getApplicationContext(), "Hello!", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(), "It's time to learn something new!", Toast.LENGTH_SHORT).show();
-                    Intent e = new Intent(Reg.this, MainActivity.class);
-                    startActivity(e);
-                } catch (User.InvalidEmailException e) {
-                    Toast.makeText(Reg.this, "Email is incorrect", Toast.LENGTH_SHORT).show();
-                }catch (User.InvalidPasswordException e) {
-                    Toast.makeText(Reg.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
-                }catch (User.InvalidNameException e) {
-                    Toast.makeText(Reg.this, "Name is incorrect", Toast.LENGTH_SHORT).show();
-                }
+        viewModel = ViewModelProvider(this).get(RegViewModel::class.java)
 
+        val mail = findViewById<EditText>(R.id.editTextTextPersonName)
+        val login = findViewById<EditText>(R.id.editTextTextPersonName3)
+        val password = findViewById<EditText>(R.id.editTextTextPersonName4)
+        btnNext = findViewById<Button>(R.id.button4) // Присваиваем значение кнопке здесь
 
-
-
+        btnNext.setOnClickListener {
+            try {
+                viewModel.registration(
+                    User(
+                        mail.text.toString(), password.text.toString(), login.text.toString()
+                    )
+                )
+                Toast.makeText(applicationContext, "Hello!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    applicationContext,
+                    "It's time to learn something new!",
+                    Toast.LENGTH_SHORT
+                ).show()
+                val intent = Intent(this@Reg, MainActivity::class.java)
+                startActivity(intent)
+            } catch (e: User.InvalidEmailException) {
+                Toast.makeText(this@Reg, "Email is incorrect", Toast.LENGTH_SHORT).show()
+            } catch (e: User.InvalidPasswordException) {
+                Toast.makeText(this@Reg, "Password is incorrect", Toast.LENGTH_SHORT).show()
+            } catch (e: User.InvalidNameException) {
+                Toast.makeText(this@Reg, "Name is incorrect", Toast.LENGTH_SHORT).show()
             }
-        });
+        }
     }
 }

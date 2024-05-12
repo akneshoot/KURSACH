@@ -1,115 +1,97 @@
-package com.example.happyenglish;
+package com.example.happyenglish
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.github.barteksc.pdfviewer.PDFView
 
-import android.os.Bundle;
+class PDFViewer : AppCompatActivity() {
+    var mPdfView: PDFView? = null
 
-import com.github.barteksc.pdfviewer.PDFView;
+    private var child_id = 0
+    private var group_id = 0
 
-public class PDFViewer extends AppCompatActivity {
-    PDFView mPdfView;
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_pdf_viewer)
 
-    private int child_id, group_id;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pdf_viewer);
+        mPdfView = findViewById(R.id.pdfView)
 
-        mPdfView=findViewById(R.id.pdfView);
+        child_id = intent.getIntExtra("child_id", 0)
+        group_id = intent.getIntExtra("group_id", 0)
 
-       // mPdfView.fromAsset("present_simple.pdf").load();
+        val fileName = getFileName(group_id, child_id)
 
-        child_id = getIntent().getIntExtra("child_id",0);
-        group_id=getIntent().getIntExtra("group_id",0);
-
-        if (group_id==0){
-            if (child_id==0){
-                mPdfView.fromAsset("1000_words.pdf").load();
-            }
-
-        }else if(group_id==1){
-            if(child_id==0){
-                mPdfView.fromAsset("present_simple.pdf").load();
-            }else if (child_id==1){
-                mPdfView.fromAsset("present_continuous.pdf").load();
-            }else if (child_id==2){
-                mPdfView.fromAsset("present_perfect.pdf").load();
-            }else if (child_id==3){
-                mPdfView.fromAsset("present_perfect_continuous.pdf").load();
-            }else if (child_id==4){
-                mPdfView.fromAsset("past_simple.pdf").load();
-            }else if (child_id==5){
-                mPdfView.fromAsset("past_continuous.pdf").load();
-            }else if (child_id==6){
-                mPdfView.fromAsset("past_perfect.pdf").load();
-            }else if (child_id==7){
-                mPdfView.fromAsset("past_perfect_continuous.pdf").load();
-            }else if (child_id==8){
-                mPdfView.fromAsset("future_simple.pdf").load();
-            }else if (child_id==9){
-                mPdfView.fromAsset("future_continuous.pdf").load();
-            }else if (child_id==10){
-                mPdfView.fromAsset("future_perfect.pdf").load();
-            }else if (child_id==11){
-                mPdfView.fromAsset("future_perfect_continuous.pdf").load();
-            }
-        }else if (group_id==2){
-            if (child_id==0){
-                mPdfView.fromAsset("define_indefinite_article.pdf").load();
-            }
-        }else if (group_id==3) {
-            if (child_id == 0) {
-                mPdfView.fromAsset("POSSESSIVES.pdf").load();
-            }
-        }else if (group_id==4){
-            if(child_id==0){
-                mPdfView.fromAsset("zero_conditional.pdf").load();
-            }else if (child_id==1){
-                mPdfView.fromAsset("1_con.pdf").load();
-            }else if (child_id==2){
-                mPdfView.fromAsset("2_con.pdf").load();
-            }else if (child_id==3){
-                mPdfView.fromAsset("3_con.pdf").load();
-            }else if (child_id==4){
-                mPdfView.fromAsset("mix_con.pdf").load();
-    }
-}else if (group_id==5){
-            if(child_id==0){
-                mPdfView.fromAsset("gerunds.pdf").load();
-            }else if (child_id==1){
-                mPdfView.fromAsset("infinitives.pdf").load();
-            }else if (child_id==2){
-                mPdfView.fromAsset("infinitives_or_gerund.pdf").load();
-            }
-    }else if (group_id==6){
-            if(child_id==0){
-                mPdfView.fromAsset("defining.pdf").load();
-            }else if (child_id==1){
-                mPdfView.fromAsset("non_defing.pdf").load();
-            }
-}else if (group_id==7){
-            if(child_id==0){
-                mPdfView.fromAsset("direct.pdf").load();
-            }else if (child_id==1){
-                mPdfView.fromAsset("reporting_ques.pdf").load();
-            }else if (child_id==2){
-                mPdfView.fromAsset("repoting_commands.pdf").load();
-            }
-    }else if (group_id==8){
-            if(child_id==0){
-                mPdfView.fromAsset("full_verb.pdf").load();
-            }else if (child_id==1){
-                mPdfView.fromAsset("aux_v.pdf").load();
-            }else if (child_id==2){
-                mPdfView.fromAsset("modal_aux.pdf").load();
-    }
-        }else if (group_id==9) {
-            if (child_id == 0) {
-                mPdfView.fromAsset("idioms.pdf").load();
-            } else if (child_id == 1) {
-                mPdfView.fromAsset("metaphors.pdf").load();
-            } else if (child_id == 2) {
-                mPdfView.fromAsset("similes.pdf").load();
-            }
+        if (fileName.isNotEmpty()) {
+            mPdfView?.fromAsset(fileName)?.load()
+        } else {
+            // Обработка случаев, когда файл не найден
         }
-}}
+    }
+
+    private fun getFileName(groupId: Int, childId: Int): String {
+        return when (groupId) {
+            0 -> "1000_words.pdf"
+            1 -> when (childId) {
+                0 -> "present_simple.pdf"
+                1 -> "present_continuous.pdf"
+                2 -> "present_perfect.pdf"
+                3 -> "present_perfect_continuous.pdf"
+                4 -> "past_simple.pdf"
+                5 -> "past_continuous.pdf"
+                6 -> "past_perfect.pdf"
+                7 -> "past_perfect_continuous.pdf"
+                8 -> "future_simple.pdf"
+                9 -> "future_continuous.pdf"
+                10 -> "future_perfect.pdf"
+                11 -> "future_perfect_continuous.pdf"
+                else -> ""
+            }
+            2 -> when (childId) {
+                0 -> "define_indefinite_article.pdf"
+                else -> ""
+            }
+            3 -> when (childId) {
+                0 -> "POSSESSIVES.pdf"
+                else -> ""
+            }
+            4 -> when (childId) {
+                0 -> "zero_conditional.pdf"
+                1 -> "1_con.pdf"
+                2 -> "2_con.pdf"
+                3 -> "3_con.pdf"
+                4 -> "mix_con.pdf"
+                else -> ""
+            }
+            5 -> when (childId) {
+                0 -> "gerunds.pdf"
+                1 -> "infinitives.pdf"
+                2 -> "infinitives_or_gerund.pdf"
+                else -> ""
+            }
+            6 -> when (childId) {
+                0 -> "defining.pdf"
+                1 -> "non_defing.pdf"
+                else -> ""
+            }
+            7 -> when (childId) {
+                0 -> "direct.pdf"
+                1 -> "reporting_ques.pdf"
+                2 -> "repoting_commands.pdf"
+                else -> ""
+            }
+            8 -> when (childId) {
+                0 -> "full_verb.pdf"
+                1 -> "aux_v.pdf"
+                2 -> "modal_aux.pdf"
+                else -> ""
+            }
+            9 -> when (childId) {
+                0 -> "idioms.pdf"
+                1 -> "metaphors.pdf"
+                2 -> "similes.pdf"
+                else -> ""
+            }
+            else -> ""
+        }
+    }
+}

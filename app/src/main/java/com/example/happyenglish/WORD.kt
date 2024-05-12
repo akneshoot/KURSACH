@@ -1,15 +1,41 @@
-package com.example.happyenglish;
+package com.example.happyenglish
 
-import android.app.ListActivity;
-import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
+import android.app.ListActivity
+import android.os.Bundle
+import android.speech.tts.TextToSpeech
+import java.util.Locale
 
-import java.util.Locale;
+class WORD : ListActivity() {
+    var ttobj: TextToSpeech? = null
+    var pitch: Float = -5f
+    var speechRate: Float = -5f
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-public class WORD extends ListActivity {
+        ttobj = TextToSpeech(this) { status ->
+            if (ttobj != null) {
+                ttobj!!.setPitch(pitch)
+                ttobj!!.setSpeechRate(speechRate)
+                if (status != TextToSpeech.ERROR) {
+                    ttobj!!.setLanguage(Locale.US)
+                }
+            }
+        }
 
-    static final String[] word_list = new String[]{
+        listAdapter = WordArrayAdapter(this, word_list, ttobj!!)
+    }
+
+    public override fun onPause() {
+        if (ttobj != null) {
+            ttobj!!.stop()
+            ttobj!!.shutdown()
+        }
+        super.onPause()
+    }
+
+    companion object {
+        val word_list: Array<String> = arrayOf(
             "accessary, accessory",
             "ad, add",
             "ail, ale",
@@ -121,37 +147,6 @@ public class WORD extends ListActivity {
             "desert, dessert",
             "deviser, divisor",
 
-    };
-
-    TextToSpeech ttobj;
-    float pitch = -5;
-    float speechRate = -5;
-
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        ttobj = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
-                    public void onInit(int status) {
-                        if (ttobj != null) {
-                            ttobj.setPitch(pitch);
-                            ttobj.setSpeechRate(speechRate);
-                            if (status != TextToSpeech.ERROR) {
-                                ttobj.setLanguage(Locale.US);
-                            }
-                        }
-
-                    }
-                });
-
-        setListAdapter(new WordArrayAdapter(this, word_list, ttobj));
+            )
     }
-
-    public void onPause() {
-        if (ttobj != null) {
-            ttobj.stop();
-            ttobj.shutdown();
-        }
-        super.onPause();
-    }
-
 }

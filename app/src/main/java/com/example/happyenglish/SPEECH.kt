@@ -1,95 +1,71 @@
-package com.example.happyenglish;
+package com.example.happyenglish
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
+import android.os.Bundle
+import android.speech.tts.TextToSpeech
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import java.util.Locale
 
-import java.util.Locale;
-
-public class SPEECH extends Activity {
-
-    float pitch = -1;
-    float speechRate = -1;
-    Button btnBack;
-    Button btnClear;
-    TextToSpeech ttobj;
-    private EditText write;
+class SPEECH : Activity() {
+    var pitch: Float = -1f
+    var speechRate: Float = -1f
+    var btnBack: Button? = null
+    var btnClear: Button? = null
+    var ttobj: TextToSpeech? = null
+    private var write: EditText? = null
 
 
     @SuppressLint("MissingInflatedId")
-    protected void onCreate(Bundle savedInstanceState) {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.speech)
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.speech);
-
-        write = (EditText) findViewById(R.id.txtInput);
-
-
-        ttobj = new TextToSpeech(getApplicationContext(),
-                new TextToSpeech.OnInitListener() {
-                    public void onInit(int status) {
-
-                        if (status != TextToSpeech.ERROR) {
-                            ttobj.setLanguage(Locale.US);
-                        }
-                    }
-                });
+        write = findViewById<View>(R.id.txtInput) as EditText
 
 
-
-        addButtonListener();
-
-    }
-
-    private void addButtonListener() {
-
-        btnBack = (Button) findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(new OnClickListener() {
-
-            public void onClick(View v) {
-
-                Intent e = new Intent(SPEECH.this, MainActivity.class);
-                startActivity(e);
-
+        ttobj = TextToSpeech(
+            applicationContext
+        ) { status ->
+            if (status != TextToSpeech.ERROR) {
+                ttobj!!.setLanguage(Locale.US)
             }
-
-        });
-
-        btnClear = (Button) findViewById(R.id.btnClear);
-        btnClear.setOnClickListener(new OnClickListener() {
-
-            public void onClick(View v) {
-
-                write.setText("");
-                ttobj.stop();
-
-            }
-
-        });
-    }
-
-
-    public void onPause() {
-        if (ttobj != null) {
-            ttobj.stop();
         }
-        super.onPause();
+
+
+
+        addButtonListener()
     }
 
-    public void speakText(View view) {
+    private fun addButtonListener() {
+        btnBack = findViewById<View>(R.id.btnBack) as Button
+        btnBack!!.setOnClickListener {
+            val e = Intent(this@SPEECH, MainActivity::class.java)
+            startActivity(e)
+        }
 
-        ttobj.setPitch(pitch);
-        ttobj.setSpeechRate(speechRate);
-        String toSpeak = write.getText().toString();
-        ttobj.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
-
-
+        btnClear = findViewById<View>(R.id.btnClear) as Button
+        btnClear!!.setOnClickListener {
+            write!!.setText("")
+            ttobj!!.stop()
+        }
     }
 
+
+    public override fun onPause() {
+        if (ttobj != null) {
+            ttobj!!.stop()
+        }
+        super.onPause()
+    }
+
+    fun speakText(view: View?) {
+        ttobj!!.setPitch(pitch)
+        ttobj!!.setSpeechRate(speechRate)
+        val toSpeak = write!!.text.toString()
+        ttobj!!.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null)
+    }
 }

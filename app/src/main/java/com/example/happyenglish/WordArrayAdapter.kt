@@ -1,53 +1,44 @@
-package com.example.happyenglish;
+package com.example.happyenglish
 
-import android.content.Context;
-import android.speech.tts.TextToSpeech;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.content.Context
+import android.speech.tts.TextToSpeech
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.ImageView
+import android.widget.TextView
 
-import java.util.HashMap;
+class WordArrayAdapter(
+    private val context: Context,
+    private val values: Array<String>,
+    private val ttobj: TextToSpeech
+) : ArrayAdapter<String?>(
+    context, R.layout.word, values
+), View.OnClickListener {
+    private val imageResourceMap = HashMap<String, Int>()
 
-public class WordArrayAdapter extends ArrayAdapter<String> implements View.OnClickListener {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+        val inflater = LayoutInflater.from(context)
 
-    private final Context context;
-    private final String[] values;
-    private final HashMap<String, Integer> imageResourceMap;
-    private TextToSpeech ttobj;
+        val rowView = inflater.inflate(R.layout.word, parent, false)
+        val textView = rowView.findViewById<TextView>(R.id.txt)
+        val imageView = rowView.findViewById<ImageView>(R.id.logo)
+        textView.text = values[position]
 
-    public WordArrayAdapter(Context context, String[] values, TextToSpeech tts) {
-        super(context, R.layout.word, values);
-        this.context = context;
-        this.values = values;
-        this.ttobj = tts;
-        imageResourceMap = new HashMap<>();
+        imageView.setImageResource(R.drawable.speaker)
+
+        rowView.setOnClickListener(this)
+
+        return rowView
     }
 
-    public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-
-        View rowView = inflater.inflate(R.layout.word, parent, false);
-        TextView textView = rowView.findViewById(R.id.txt);
-        ImageView imageView = rowView.findViewById(R.id.logo);
-        textView.setText(values[position]);
-
-        imageView.setImageResource(R.drawable.speaker);
-
-        rowView.setOnClickListener(this);
-
-        return rowView;
+    override fun onClick(v: View) {
+        val word = (v.findViewById<View>(R.id.txt) as TextView).text.toString()
+        playSound(word)
     }
 
-    @Override
-    public void onClick(View v) {
-        String word = ((TextView) v.findViewById(R.id.txt)).getText().toString();
-        playSound(word);
-    }
-
-    private void playSound(String word) {
-        ttobj.speak(word, TextToSpeech.QUEUE_FLUSH, null);
+    private fun playSound(word: String) {
+        ttobj.speak(word, TextToSpeech.QUEUE_FLUSH, null)
     }
 }
