@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">160dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:background">@drawable/rect_rounded_button</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/sh</item>
+    </style>
+    <style name="CommonImageViewStyle" >
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="android:layout_marginTop">60dp</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+    <style name="CommonEditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:ems">10</item>
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:textColorHint">@color/black</item>
+        <item name="android:fontFamily">@font/sh</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+    </style>
+
+</resources>
+

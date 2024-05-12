@@ -51,13 +51,10 @@
 
     <Button
         android:id="@+id/btnSpeak"
-        android:layout_width="160dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="364dp"
-        android:background="@drawable/rect_rounded_button"
+        style="@style/CustomButtonStyle"
+        android:layout_marginTop="324dp"
         android:onClick="speakText"
         android:text="Speak"
-        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,24 +62,16 @@
 
     <Button
         android:id="@+id/btnClear"
-        android:layout_width="160dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rect_rounded_button"
+        style="@style/CustomButtonStyle"
         android:text="Clear"
-        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@id/btnSpeak"
-        app:layout_constraintTop_toBottomOf="@id/btnSpeak" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSpeak" />
 
     <Button
         android:id="@+id/btnBack"
-        android:layout_width="160dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rect_rounded_button"
+        style="@style/CustomButtonStyle"
         android:text="Back"
-        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@id/btnSpeak"
-        app:layout_constraintTop_toBottomOf="@id/btnClear" />
+        app:layout_constraintTop_toBottomOf="@+id/btnClear" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
