@@ -72,31 +72,35 @@
      />
 
 
-        <Button
-            android:layout_marginTop="20px"
-            android:id="@+id/btnWord"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:background="@drawable/rect_rounded_button"
-            android:text="Pronunciation"
-            android:layout_marginLeft="30px"/>
+    <Button
+        android:id="@+id/btnSettings"
+        style="@style/CommonButtonStyle1"
+        android:layout_gravity="center"
+        android:text="Settings"/>
 
-        <Button
-            android:layout_marginTop="20px"
-            android:id="@+id/Start"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:background="@drawable/rect_rounded_button"
-            android:text="Practice words"
-            android:layout_marginLeft="30px" />
-        <Button
-            android:layout_marginTop="20px"
-            android:id="@+id/Exit"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:background="@drawable/rect_rounded_button"
-            android:text="Log out of profile"
-            android:layout_marginLeft="30px" />
+    <Button
+        android:id="@+id/btnTranslation"
+        style="@style/CommonButtonStyle1"
+        android:layout_gravity="center"
+        android:text="Translation"/>
+
+    <Button
+        android:id="@+id/btnWord"
+        style="@style/CommonButtonStyle1"
+        android:layout_gravity="center"
+        android:text="Pronunciation"/>
+
+    <Button
+        android:id="@+id/Start"
+        style="@style/CommonButtonStyle1"
+        android:layout_gravity="center"
+        android:text="Practice words"/>
+
+    <Button
+        android:id="@+id/Exit"
+        style="@style/CommonButtonStyle1"
+        android:layout_gravity="center"
+        android:text="Log out of profile"/>
 
 
 

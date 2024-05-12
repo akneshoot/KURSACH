@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.provider.Settings
 import android.text.Html
 import android.view.Gravity
 import android.view.MenuItem
@@ -27,6 +28,8 @@ class MainActivity : AppCompatActivity() {
 
     var btnListWord: Button? = null
     var btnStart: Button? = null
+    var btnTranslation: Button?=null
+    var btnSettings: Button?=null
 
     var btnExit: Button? = null
 
@@ -122,6 +125,7 @@ class MainActivity : AppCompatActivity() {
         mViewpager!!.addOnPageChangeListener(onPageChangeListener)
     }
 
+
     @SuppressLint("WrongViewCast")
     private fun addButtonListener() {
         btnListWord = findViewById<View>(R.id.btnWord) as Button
@@ -132,6 +136,16 @@ class MainActivity : AppCompatActivity() {
         btnStart = findViewById<View>(R.id.Start) as Button
         btnStart!!.setOnClickListener {
             val e = Intent(this@MainActivity, SPEECH::class.java)
+            startActivity(e)
+        }
+        btnTranslation =  findViewById<View>(R.id.btnTranslation) as Button
+        btnTranslation!!.setOnClickListener{
+            val e = Intent(this@MainActivity, Translation::class.java)
+            startActivity(e)
+        }
+        btnSettings =  findViewById<View>(R.id.btnSettings) as Button
+        btnSettings!!.setOnClickListener{
+            val e = Intent(this@MainActivity, com.example.happyenglish.Settings::class.java)
             startActivity(e)
         }
         btnExit = findViewById<View>(R.id.Exit) as Button
@@ -157,6 +171,7 @@ class MainActivity : AppCompatActivity() {
         mExpandableListView = findViewById(R.id.expandable_listview)
         list_children = ExpandableListData.getData()
         list_group = ArrayList(list_children!!.keys)
+
 
         dotsLayout = findViewById(R.id.dotsLayout)
     }
