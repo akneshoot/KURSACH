@@ -1,5 +1,6 @@
 package com.example.happyenglish
 
+import CustomExpandableListViewAdapter
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
@@ -76,7 +77,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        mExpandableListAdapter = CustomExpandableListViewAdapter(this, list_group, list_children)
+        mExpandableListAdapter = CustomExpandableListViewAdapter(this, list_group!!, list_children!!)
         mExpandableListView!!.setAdapter(mExpandableListAdapter)
 
 
