@@ -143,7 +143,7 @@ class MainActivity : AppCompatActivity() {
         }
         btnSettings =  findViewById<View>(R.id.btnSettings) as Button
         btnSettings!!.setOnClickListener{
-            val e = Intent(this@MainActivity, com.example.happyenglish.Settings::class.java)
+            val e = Intent(this@MainActivity, com.example.happyenglish.SettingsActivity::class.java)
             startActivity(e)
         }
         btnExit = findViewById<View>(R.id.Exit) as Button
