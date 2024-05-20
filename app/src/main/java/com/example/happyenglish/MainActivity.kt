@@ -5,7 +5,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.provider.Settings
 import android.text.Html
 import android.view.Gravity
 import android.view.MenuItem
@@ -20,7 +19,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewpager.widget.ViewPager
-import com.example.happyenglish.WORD
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
@@ -138,9 +136,9 @@ class MainActivity : AppCompatActivity() {
             val e = Intent(this@MainActivity, SPEECH::class.java)
             startActivity(e)
         }
-        btnTranslation =  findViewById<View>(R.id.btnTranslation) as Button
+        btnTranslation =  findViewById<View>(R.id.btnDictionary) as Button
         btnTranslation!!.setOnClickListener{
-            val e = Intent(this@MainActivity, Translation::class.java)
+            val e = Intent(this@MainActivity, DictionaryActivity::class.java)
             startActivity(e)
         }
         btnSettings =  findViewById<View>(R.id.btnSettings) as Button

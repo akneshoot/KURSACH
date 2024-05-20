@@ -17,7 +17,7 @@
             android:name=".Settings"
             android:exported="false" />
         <activity
-            android:name=".Translation"
+            android:name=".DictionaryActivity"
             android:exported="false"
             android:theme="@style/Theme.HappyEnglish" />
         <activity

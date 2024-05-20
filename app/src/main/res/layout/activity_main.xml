@@ -79,10 +79,10 @@
         android:text="Settings"/>
 
     <Button
-        android:id="@+id/btnTranslation"
+        android:id="@+id/btnDictionary"
         style="@style/CommonButtonStyle1"
         android:layout_gravity="center"
-        android:text="Translation"/>
+        android:text="Dictionary"/>
 
     <Button
         android:id="@+id/btnWord"
