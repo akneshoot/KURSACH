@@ -1,14 +1,15 @@
 package com.example.happyenglish
 
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.edit
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.happyenglish.R
@@ -36,7 +37,10 @@ class DictionaryActivity : AppCompatActivity() {
     private lateinit var apiService: DictionaryApiService
     private lateinit var adapter: DictionaryAdapter
     private lateinit var historyAdapter: SearchHistoryAdapter
+    private lateinit var progressBar: ProgressBar
     private var lastSearchWord: String = ""
+    private lateinit var handler: Handler
+    private lateinit var searchRunnable: Runnable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,16 +60,23 @@ class DictionaryActivity : AppCompatActivity() {
         errorTextView = findViewById(R.id.error_text_view)
         errorRetryButton = findViewById(R.id.error_retry_button)
         clearHistoryButton = findViewById(R.id.clear_history_button)
+        progressBar = findViewById(R.id.progress_bar)
 
         apiService = RetrofitClientInstance.getRetrofitInstance().create(DictionaryApiService::class.java)
 
         resultsRecyclerView.layoutManager = LinearLayoutManager(this)
+        progressBar = findViewById(R.id.progress_bar)
 
-
+        handler = Handler(Looper.getMainLooper())
+        searchRunnable = Runnable {
+            searchWord(searchEditText.text.toString().trim())
+        }
+        progressBar.visibility = View.GONE
 
         searchEditText.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
-                Log.d("DictionaryActivity", "searchEditText получил фокус")
+                handler.removeCallbacks(searchRunnable)
+                handler.postDelayed(searchRunnable, 3000) // 2 секунды задержки
                 updateSearchHistoryUI()
             } else {
                 hideSearchHistoryUI()
@@ -80,7 +91,6 @@ class DictionaryActivity : AppCompatActivity() {
                 SearchHistoryManager.saveSearchQuery(this, word) // Сохраняем поисковый запрос
             }
         }
-
 
         noResultsRetryButton.setOnClickListener {
             if (lastSearchWord.isNotEmpty()) {
@@ -107,12 +117,14 @@ class DictionaryActivity : AppCompatActivity() {
 
     private fun searchWord(word: String) {
         lastSearchWord = word
+        progressBar.visibility = View.VISIBLE // Показываем ProgressBar
         val call = apiService.getWordDefinition(word)
         call.enqueue(object : Callback<List<DictionaryResponse>> {
             override fun onResponse(
                 call: Call<List<DictionaryResponse>>,
                 response: Response<List<DictionaryResponse>>
             ) {
+                progressBar.visibility = View.GONE // Скрываем ProgressBar после завершения запроса
                 if (response.isSuccessful && response.body() != null) {
                     val meanings = response.body()!![0].meanings
                     if (meanings.isEmpty()) {
@@ -128,6 +140,7 @@ class DictionaryActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<DictionaryResponse>>, t: Throwable) {
+                progressBar.visibility = View.GONE // Скрываем ProgressBar при ошибке
                 showErrorPlaceholder()
             }
         })
@@ -152,11 +165,6 @@ class DictionaryActivity : AppCompatActivity() {
             historyRecyclerView.visibility = View.GONE
         }
     }
-
-
-
-
-
 
     private fun hideSearchHistoryUI() {
         val historyPlaceholder: LinearLayout = findViewById(R.id.history_placeholder)
