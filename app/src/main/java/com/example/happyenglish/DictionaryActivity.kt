@@ -76,7 +76,7 @@ class DictionaryActivity : AppCompatActivity() {
         searchEditText.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 handler.removeCallbacks(searchRunnable)
-                handler.postDelayed(searchRunnable, 3000) // 2 секунды задержки
+                handler.postDelayed(searchRunnable, 3000) // 3 секунды задержки
                 updateSearchHistoryUI()
             } else {
                 hideSearchHistoryUI()
@@ -115,9 +115,18 @@ class DictionaryActivity : AppCompatActivity() {
         hideSearchHistoryUI()
     }
 
-    private fun searchWord(word: String) {
+    fun searchWord(word: String) {
         lastSearchWord = word
-        progressBar.visibility = View.VISIBLE // Показываем ProgressBar
+        // Показываем ProgressBar
+        progressBar.visibility = View.VISIBLE
+
+        // Скрываем остальные элементы
+        searchButton.alpha = 0f
+        resultsRecyclerView.visibility = View.GONE
+        noResultsPlaceholder.visibility = View.GONE
+        errorPlaceholder.visibility = View.GONE
+        clearHistoryButton.alpha = 0f
+
         val call = apiService.getWordDefinition(word)
         call.enqueue(object : Callback<List<DictionaryResponse>> {
             override fun onResponse(
@@ -125,6 +134,10 @@ class DictionaryActivity : AppCompatActivity() {
                 response: Response<List<DictionaryResponse>>
             ) {
                 progressBar.visibility = View.GONE // Скрываем ProgressBar после завершения запроса
+                // Показываем остальные элементы после завершения запроса
+                searchButton.alpha = 1f
+                clearHistoryButton.alpha = 1f
+
                 if (response.isSuccessful && response.body() != null) {
                     val meanings = response.body()!![0].meanings
                     if (meanings.isEmpty()) {
@@ -141,10 +154,14 @@ class DictionaryActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<List<DictionaryResponse>>, t: Throwable) {
                 progressBar.visibility = View.GONE // Скрываем ProgressBar при ошибке
+                // Показываем остальные элементы при ошибке
+                searchButton.alpha = 1f
+                clearHistoryButton.alpha = 1f
                 showErrorPlaceholder()
             }
         })
     }
+
 
     fun updateSearchHistoryUI() {
         val fullHistory = SearchHistoryManager.getSearchHistory(this)
