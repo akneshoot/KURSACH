@@ -5,7 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.happyenglish.DictionaryActivity
 import com.example.happyenglish.R
+import com.example.happyenglish.SH.SearchHistoryManager
 
 class DictionaryAdapter(private val meanings: List<Meaning>) :
     RecyclerView.Adapter<DictionaryAdapter.ViewHolder>() {
@@ -21,11 +23,23 @@ class DictionaryAdapter(private val meanings: List<Meaning>) :
         return ViewHolder(view)
     }
 
+    // Внутри класса ViewHolder в адаптере DictionaryAdapter
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val meaning = meanings[position]
         holder.partOfSpeechTextView.text = meaning.partOfSpeech
         holder.definitionTextView.text = meaning.definitions.joinToString("\n") { it.definition }
+
+        // Добавляем обработчик нажатия на элемент
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val word = meaning.definitions.firstOrNull()?.definition ?: ""
+            SearchHistoryManager.saveSearchQuery(context, word)
+            // Обновляем UI истории поиска
+            (context as? DictionaryActivity)?.updateSearchHistoryUI()
+        }
     }
+
 
     override fun getItemCount(): Int {
         return meanings.size

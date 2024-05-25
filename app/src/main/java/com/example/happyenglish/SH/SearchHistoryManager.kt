@@ -27,9 +27,10 @@ object SearchHistoryManager {
     fun getSearchHistory(context: Context): List<String> {
         val sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
         val history = sharedPreferences.getStringSet("history", setOf())?.toList() ?: emptyList()
-        Log.d("SearchHistory", "Retrieved history: $history")
+        Log.d("SearchHistory", "Retrieved history size: ${history.size}") // Логируем размер полученной истории
         return history
     }
+
 
     fun clearSearchHistory(context: Context) {
         val sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)

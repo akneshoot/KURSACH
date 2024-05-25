@@ -5,8 +5,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.happyenglish.DictionaryActivity
 import com.example.happyenglish.R
 
 class SearchHistoryAdapter(private val context: Context, private val history: List<String>) : RecyclerView.Adapter<SearchHistoryAdapter.ViewHolder>() {
@@ -32,6 +34,16 @@ class SearchHistoryAdapter(private val context: Context, private val history: Li
 
         fun bind(query: String) {
             queryTextView.text = query
+            // Добавляем обработчик нажатия на элемент
+            itemView.setOnClickListener {
+                val editText = (context as? DictionaryActivity)?.findViewById<EditText>(R.id.search_auto_complete_text_view)
+                editText?.setText(query)
+                editText?.setSelection(editText.text.length)
+            }
         }
     }
+
+    // Остальной код адаптера
 }
+
+

@@ -61,6 +61,8 @@ class DictionaryActivity : AppCompatActivity() {
 
         resultsRecyclerView.layoutManager = LinearLayoutManager(this)
 
+
+
         searchEditText.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 Log.d("DictionaryActivity", "searchEditText получил фокус")
@@ -131,21 +133,30 @@ class DictionaryActivity : AppCompatActivity() {
         })
     }
 
-    private fun updateSearchHistoryUI() {
-        val history = SearchHistoryManager.getSearchHistory(this)
-        Log.d("DictionaryActivity", "History: $history")
+    fun updateSearchHistoryUI() {
+        val fullHistory = SearchHistoryManager.getSearchHistory(this)
+        val history = if (fullHistory.size > 10) fullHistory.subList(0, 10) else fullHistory
+
+        val historyRecyclerView: RecyclerView = findViewById(R.id.history_recycler_view)
         if (history.isNotEmpty()) {
             val historyPlaceholder: LinearLayout = findViewById(R.id.history_placeholder)
             historyPlaceholder.visibility = View.VISIBLE
 
-            val historyRecyclerView: RecyclerView = findViewById(R.id.history_recycler_view)
             historyRecyclerView.layoutManager = LinearLayoutManager(this)
 
             historyAdapter = SearchHistoryAdapter(this, history)
             historyRecyclerView.adapter = historyAdapter
+
             historyRecyclerView.visibility = View.VISIBLE
+        } else {
+            historyRecyclerView.visibility = View.GONE
         }
     }
+
+
+
+
+
 
     private fun hideSearchHistoryUI() {
         val historyPlaceholder: LinearLayout = findViewById(R.id.history_placeholder)
