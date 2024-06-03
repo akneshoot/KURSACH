@@ -34,6 +34,7 @@
         app:layout_constraintTop_toTopOf="@+id/button" />
     <Button
         android:id="@+id/button"
+        style="@style/buttonVhodREG"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"

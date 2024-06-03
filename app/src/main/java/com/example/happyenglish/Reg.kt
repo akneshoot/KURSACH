@@ -1,8 +1,6 @@
 package com.example.happyenglish
-
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -23,7 +21,16 @@ class Reg : AppCompatActivity() {
         val mail = findViewById<EditText>(R.id.editTextTextPersonName)
         val login = findViewById<EditText>(R.id.editTextTextPersonName3)
         val password = findViewById<EditText>(R.id.editTextTextPersonName4)
-        btnNext = findViewById<Button>(R.id.button4) // Присваиваем значение кнопке здесь
+        btnNext = findViewById<Button>(R.id.button4)
+
+        // Находим кнопку "Назад" и добавляем обработчик нажатия
+        val backButton = findViewById<Button>(R.id.backButton)
+        backButton.setOnClickListener {
+            // Создаем намерение для перехода на активность vhod
+            val intent = Intent(this, Vhod::class.java)
+            // Запускаем активность vhod
+            startActivity(intent)
+        }
 
         btnNext.setOnClickListener {
             try {

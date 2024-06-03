@@ -38,9 +38,7 @@
     <!-- Кнопка для запуска поиска -->
     <Button
         android:id="@+id/search_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        style="@style/ButtorForDictionary"
         android:text="Поиск"
         app:layout_constraintEnd_toEndOf="@id/search_auto_complete_text_view"
         app:layout_constraintHorizontal_bias="0.501"
@@ -50,8 +48,7 @@
     <!-- Кнопка "Назад" -->
     <Button
         android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ButtorForDictionary"
         android:text="Назад"
         app:layout_constraintEnd_toEndOf="@id/search_button"
         app:layout_constraintTop_toBottomOf="@id/search_button" />
@@ -59,8 +56,7 @@
     <!-- Кнопка для очистки истории -->
     <Button
         android:id="@+id/clear_history_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ButtorForDictionary"
         android:text="Очистить историю"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,8 +97,7 @@
 
         <Button
             android:id="@+id/no_results_retry_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/ButtorForDictionary"
             android:text="Повторить"
             android:visibility="gone"
             android:layout_marginTop="16dp"/>
@@ -126,14 +121,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ошибка"
+            android:textColor="#000000"
             android:layout_marginTop="16dp"
             android:layout_gravity="center"
             android:visibility="visible" />
 
         <Button
             android:id="@+id/error_retry_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/ButtorForDictionary"
             android:text="Повторить"
             android:layout_marginTop="16dp"
             android:layout_gravity="center"
@@ -164,8 +159,6 @@
         app:layout_constraintTop_toBottomOf="@id/back_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-
-        <!-- Здесь вы можете добавить дополнительные элементы для отображения истории поиска, например, заголовок -->
 
     </LinearLayout>
 

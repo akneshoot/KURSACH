@@ -7,7 +7,7 @@
         <item name="colorOnPrimary">@color/colorOnPrimaryDark</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/purple_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/purple_200</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Background and surface colors. -->
         <item name="android:colorBackground">@color/colorBackground</item>

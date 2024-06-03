@@ -30,6 +30,7 @@
             android:name=".GrammarTestActivity"
             android:exported="false" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".SearchActivity"></activity>
         <activity
             android:name=".OnBoarding"
             android:exported="true">

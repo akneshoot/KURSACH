@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     var btnSettings: Button?=null
 
     var btnExit: Button? = null
-
+    var btnSearchImgage: Button?=null
     var btnMenu: FloatingActionButton? = null
     var mDrawer: DrawerLayout? = null
 
@@ -156,6 +156,11 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this@MainActivity, "Please log in to the app.", Toast.LENGTH_SHORT)
                 .show()
             val e = Intent(this@MainActivity, Vhod::class.java)
+            startActivity(e)
+        }
+        btnSearchImgage= findViewById<View>(R.id.btnSearchImage) as Button
+        btnSearchImgage!!.setOnClickListener{
+            val e = Intent(this@MainActivity, SearchActivity::class.java)
             startActivity(e)
         }
     }

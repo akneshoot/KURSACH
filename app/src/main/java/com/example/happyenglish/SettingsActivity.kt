@@ -28,7 +28,7 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
+        //Переключатель темы
         val themeSwitch = findViewById<SwitchCompat>(R.id.theme_switch)
 
         themeSwitch.isChecked = isDarkThemeEnabled()
@@ -40,12 +40,12 @@ class SettingsActivity : AppCompatActivity() {
             )
         }
     }
-
+    // Функция проверки, включена ли темная тема
     private fun isDarkThemeEnabled(): Boolean {
         val sharedPreferences: SharedPreferences = getSharedPreferences("MySettings", MODE_PRIVATE)
         return sharedPreferences.getBoolean("isDarkThemeEnabled", false)
     }
-
+    // Функция для сохранения состояния темной темы
     private fun setDarkThemeEnabled(isEnabled: Boolean) {
         val sharedPreferences: SharedPreferences = getSharedPreferences("MySettings", MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()

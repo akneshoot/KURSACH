@@ -182,6 +182,10 @@ class DictionaryActivity : AppCompatActivity() {
             historyRecyclerView.visibility = View.GONE
         }
     }
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putString("lastSearchWord", lastSearchWord)
+        super.onSaveInstanceState(outState)
+    }
 
     private fun hideSearchHistoryUI() {
         val historyPlaceholder: LinearLayout = findViewById(R.id.history_placeholder)

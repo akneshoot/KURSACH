@@ -9,10 +9,6 @@
     <EditText
         android:id="@+id/editTextTextPersonName2"
         style="@style/CommonEditTextStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="55dp"
-        android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/Name"
         android:textColorHint="@color/black"
@@ -23,10 +19,6 @@
     <EditText
         android:id="@+id/editTextTextPassword"
         style="@style/CommonEditTextStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="30dp"
-        android:ems="10"
         android:hint="@string/Password"
         android:inputType="textPassword"
         android:textColorHint="#000000"
@@ -36,9 +28,7 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        style="@style/buttonVhodREG"
         android:text="@string/Next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,9 +42,7 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        style="@style/buttonVhodREG"
         android:text="Registration"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

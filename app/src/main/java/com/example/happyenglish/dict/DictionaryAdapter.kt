@@ -22,9 +22,7 @@ class DictionaryAdapter(private val meanings: List<Meaning>) :
             .inflate(R.layout.item_meaning, parent, false)
         return ViewHolder(view)
     }
-
-    // Внутри класса ViewHolder в адаптере DictionaryAdapter
-
+    // Привязка данных к ViewHolder
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val meaning = meanings[position]
         holder.partOfSpeechTextView.text = meaning.partOfSpeech

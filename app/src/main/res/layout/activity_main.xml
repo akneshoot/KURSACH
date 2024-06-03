@@ -95,6 +95,11 @@
         style="@style/CommonButtonStyle1"
         android:layout_gravity="center"
         android:text="Practice words"/>
+    <Button
+        android:id="@+id/btnSearchImage"
+        style="@style/CommonButtonStyle1"
+        android:layout_gravity="center"
+        android:text="Search"/>
 
     <Button
         android:id="@+id/Exit"

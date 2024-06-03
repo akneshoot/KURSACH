@@ -19,8 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Registration"
-        android:textColor
-            ="@color/black"
+        android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,8 +31,6 @@
         android:hint="Password (min size: 6)"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
         tools:ignore="MissingConstraints" />
-
-
 
     <ImageView
         android:id="@+id/imageView4"
@@ -50,11 +47,20 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        style="@style/buttonVhodREG"
         android:text="Registrate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+
+    <!-- Кнопка "Назад" расположена под кнопкой "Registrate" и выровнена по центру -->
+    <Button
+        android:id="@+id/backButton"
+        style="@style/buttonVhodREG"
+        android:text="Back"
+        app:layout_constraintStart_toStartOf="@id/button4"
+        app:layout_constraintTop_toBottomOf="@id/button4"
+        app:layout_constraintEnd_toEndOf="@id/button4"
+        android:layout_marginTop="16dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

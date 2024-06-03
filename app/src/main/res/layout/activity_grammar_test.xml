@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".GrammarTestActivity">
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:id="@+id/top_relative_layout"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
         android:background="#5CFCFDFD"
-        android:padding="10dp">
+        android:padding="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/middle_relative_layout"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintWidth_percent="1"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/level_textview"
@@ -41,18 +45,20 @@
             android:paddingLeft="10dp"
             android:text="Выберите правильный ответ"
             android:textColor="#000000"
-            android:textStyle="bold"
-
-
-            />
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:id="@+id/middle_relative_layout"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="10dp">
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/top_relative_layout"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_relative_layout"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintWidth_percent="1"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/question_counter"
@@ -66,7 +72,7 @@
             android:id="@+id/question_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/question_counter"
+            android:layout_toRightOf="@id/question_counter"
             android:padding="10dp"
             android:text="Это первый номер нашего грамматического теста." />
 
@@ -75,7 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/question_text"
-            android:layout_alignLeft="@+id/question_text"
+            android:layout_alignLeft="@id/question_text"
             android:padding="10dp">
 
             <RadioButton
@@ -98,15 +104,19 @@
 
         </RadioGroup>
 
-
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:id="@+id/bottom_relative_layout"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:background="#6AF7FAF9"
-        android:padding="10dp">
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/middle_relative_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintWidth_percent="1"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/test_points_textView"
@@ -131,8 +141,6 @@
             android:layout_centerHorizontal="true"
             android:text="Отправить" />
 
-
     </RelativeLayout>
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
