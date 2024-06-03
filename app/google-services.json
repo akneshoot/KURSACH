@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "592832153261",
+    "project_id": "happyenglish-aba37",
+    "storage_bucket": "happyenglish-aba37.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592832153261:android:3069168596da01a0c32824",
+        "android_client_info": {
+          "package_name": "com.example.happyenglish"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARrAlUI-ubsKkaRBcRpJX9ksiGopCYDMM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

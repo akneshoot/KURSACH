@@ -7,61 +7,56 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore // Добавлено
 
 class Vhod : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
     var btnVhod: Button? = null
     var btnNext: Button? = null
-    private var viewModel: VhodViewModel? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.vhod)
-        viewModel = ViewModelProvider(this).get(VhodViewModel::class.java)
+
+        auth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance() // Инициализация Firestore
+
         val ed1 = findViewById<EditText>(R.id.editTextTextPersonName2)
         val ed2 = findViewById<EditText>(R.id.editTextTextPassword)
+
         btnNext = findViewById(R.id.button2)
         btnNext?.setOnClickListener(View.OnClickListener {
-            val username = ed1.text.toString().trim { it <= ' ' }
+            val email = ed1.text.toString().trim { it <= ' ' }
             val password = ed2.text.toString().trim { it <= ' ' }
-            if (username.isEmpty() || password.isEmpty()) {
+
+            if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(
                     this@Vhod,
-                    "Please enter your username and password.",
+                    "Please enter your email and password.",
                     Toast.LENGTH_SHORT
                 ).show()
                 return@OnClickListener
             }
-            viewModel!!.loginV(ed1.text.toString(), ed2.text.toString())
-                .observe(this@Vhod) { aBoolean: Boolean ->
-                    if (aBoolean) {
-                        Toast.makeText(this@Vhod, "Hello!", Toast.LENGTH_SHORT).show()
-                        Toast.makeText(
-                            this@Vhod,
-                            "It's time to learn something new!",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        val e = Intent(this@Vhod, MainActivity::class.java)
-                        startActivity(e)
+
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this@Vhod, "Login successful", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@Vhod, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
                     } else {
-                        Toast.makeText(
-                            this@Vhod,
-                            "There is no such login or password!",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        Toast.makeText(this@Vhod, "Please, go to registration.", Toast.LENGTH_SHORT)
-                            .show()
+                        Toast.makeText(this@Vhod, "Login failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                     }
                 }
         })
+
         btnVhod = findViewById<View>(R.id.button3) as Button
         btnVhod!!.setOnClickListener {
-            val e = Intent(this@Vhod, Reg::class.java)
-            startActivity(e)
+            val intent = Intent(this@Vhod, Reg::class.java)
+            startActivity(intent)
         }
     }
 }
-
-
-
