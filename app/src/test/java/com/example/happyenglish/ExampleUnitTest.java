@@ -1,6 +1,6 @@
 package com.example.happyenglish;
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import static org.junit.Assert.*;
 

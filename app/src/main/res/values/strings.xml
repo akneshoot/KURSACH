@@ -98,7 +98,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="Password">Password</string>
-    <string name="Name">Name</string>
+    <string name="Mail">Mail</string>
     <string name="Next">Next</string>
     <string name="title_activity_registration">Registration</string>
     <string name="title_activity_translation">Translation</string>
